@@ -2,37 +2,56 @@
 require 'connect.php';
 require 'event-operations.php';
 
-$event_id = isset($_GET['event-id']) && is_numeric($_GET['event-id']) ? $_GET['event-id'] : header('Location:index.php');
-$query = $db ->prepare('SELECT * FROM event WHERE event_id = ?');
-$query ->execute([
-    $event_id
+$get_event_id = isset($_GET['event-id']) && is_numeric($_GET['event-id']) ? $_GET['event-id'] : header('Location:index.php');
+$get_event_day = isset($_GET['event-day']) && is_numeric($_GET['event-day']) ? $_GET['event-day'] : header('Location:index.php');
+$get_hall_number = isset($_GET['hall-number']) && is_numeric($_GET['hall-number']) ? $_GET['hall-number'] : header('Location:index.php');
+
+$query = $db->prepare('SELECT * FROM event WHERE event_id = ?');
+$query->execute([
+    $get_event_id
 ]);
-
 $event = $query->fetch(PDO::FETCH_ASSOC);
-
 
 $query = $db->prepare('SELECT * FROM sponsor Where event_id = ? AND sponsor_type = "Ana"');
 $query->execute([
-    $event_id
+    $get_event_id
 ]);
 $anaSponsor = $query->fetch(PDO::FETCH_ASSOC);
 
-
 $query = $db->prepare('SELECT * FROM sponsor WHERE event_id = ? AND sponsor_type = "iletisim"');
 $query->execute([
-    $event_id
+    $get_event_id
 ]);
 $iletisimSponsors = $query->fetchAll(PDO::FETCH_ASSOC);
 
 $query = $db->prepare('SELECT * FROM event_day WHERE event_id = ?');
 $query->execute([
-    $event_id
+    $get_event_id
 ]);
 $event_days = $query->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($event_days);
+$query = $db->prepare('SELECT * FROM event_day WHERE event_id = ? AND event_day = ?');
+$query->execute([
+    $get_event_id, $get_event_day
+]);
+$current_event_day = $query->fetch(PDO::FETCH_ASSOC);
+
+$query = $db->prepare('SELECT * FROM summit WHERE event_day_id = ?');
+$query->execute([
+    $current_event_day['event_day_id']
+]);
+$summit_list = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
+$hall_list = array();
+foreach ($summit_list as $summit) {
+    $query = $db->prepare('SELECT * FROM hall WHERE hall_id = ?');
+    $query->execute([
+        $summit['hall_id']
+    ]);
+    array_push($hall_list, $query->fetch(PDO::FETCH_ASSOC));
+}
+array_unique($hall_list);
 
 ?>
 <!doctype html>
@@ -98,8 +117,9 @@ print_r($event_days);
         #nav li {
             float: left;
         }
+
         .header-nav {
-            float: right!important;
+            float: right !important;
         }
     </style>
     <!--Logo Mainmenu Start-->
@@ -132,14 +152,16 @@ print_r($event_days);
                                     <nav>
                                         <ul id="nav" class="header-nav">
                                             <li><a onclick="dropfunc()" class="dropbtn">
-                                                    <i  class="fa fa-user"></i> PROFİLİM</a>
+                                                    <i class="fa fa-user"></i> PROFİLİM</a>
                                                 <div id="profileDropdown" class="dropdown-content">
                                                     <a href="#">Link 1</a>
                                                     <a href="#">Link 2</a>
                                                     <a href="#">Link 3</a>
-                                                </div></li>
+                                                </div>
+                                            </li>
                                             <li><a href="#"><i class="fa fa-mail-reply"></i> MESAJLAR</a></li>
-                                            <li><i class="fa fa-bell" style="padding-left: 50px;font-size: 25px;"></i></li>
+                                            <li><i class="fa fa-bell" style="padding-left: 50px;font-size: 25px;"></i>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -147,7 +169,8 @@ print_r($event_days);
                                     function dropfunc() {
                                         document.getElementById("profileDropdown").classList.toggle("show");
                                     }
-                                    window.onclick = function(event) {
+
+                                    window.onclick = function (event) {
                                         if (!event.target.matches('.dropbtn')) {
 
                                             var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -205,7 +228,8 @@ print_r($event_days);
                         </h1>
                     </div>
 
-                    <div class="col-md-2.6 col-sm-4 col-xs-12"  style="display: flex;  margin: 0px; height: 100px; padding: 0px; flex-direction: row; justify-items: center; justify-content: center">
+                    <div class="col-md-2.6 col-sm-4 col-xs-12"
+                         style="display: flex;  margin: 0px; height: 100px; padding: 0px; flex-direction: row; justify-items: center; justify-content: center">
                         <a href="#" class="red-button"
                            style="height: 60px; margin-top: 20px; line-height: 60px; padding: 0px 45px;">8-10 Mayıs
                             2018</a>
@@ -250,31 +274,26 @@ print_r($event_days);
                 ?></h3>
 
             <p>
-                <?php echo $event['event_description'];       ?>
+                <?php echo $event['event_description']; ?>
             </p>
 
             <div>
                 <!-- Nav tabs -->
                 <div class="col hidden-xs">
                     <ul class="event-details-nav" role="tablist">
-
                         <?php
-                        foreach ($event_days as $event_day){
+                        foreach ($event_days as $event_day) {
                             echo '
-                            
-                        <li role="presentation" class="active">
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <a href="#home" aria-controls="home" role="tab"
-                               data-toggle="tab">Event Day'. $event_day['event_day']. '</a>
-                        </li>
-                            
+                                    <li role="presentation" class="' . ($event_day['event_day'] == $get_event_day ? 'active' : '') . '">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <a href="event-detail.php?event-id=' . $get_event_id . '&event-day=' . $event_day['event_day'] . '" aria-controls="home" role="tab">Event Day ' . $event_day['event_day'] . '</a>
+                                    </li>
                             ';
-
-
                         }
                         ?>
                     </ul>
                 </div>
+
                 <div class="col hidden-lg hidden-md hidden-sm">
                     <ul class="event-details-nav" role="tablist" style="display:block;">
                         <li role="presentation" class="active">
@@ -305,34 +324,32 @@ print_r($event_days);
                         <div>
                             <!-- Inner Nav tabs -->
                             <ul class="event-details-inner-nav" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#hal1" aria-controls="hal1" role="tab"
-                                       data-toggle="tab">HALL 1</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#hal2" aria-controls="hal2" role="tab"
-                                       data-toggle="tab">HALL 2</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#hal3" aria-controls="hal3" role="tab"
-                                       data-toggle="tab">HALL 3</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#hal4" aria-controls="hal4" role="tab"
-                                       data-toggle="tab">HALL 4</a>
-                                </li>
+                                <?php
+                                for ($i = 1; $i <= count($hall_list); $i++) {
+                                    echo '
+                                    <li role="presentation" class="' . ($get_hall_number == $i ? 'active' : '') . '">
+                                        <a href="event-detail.php?event-id=' . $get_event_id . '&event-day=' . $get_event_day . '&hall-number=' . $i . '" aria-controls="hal1" role="tab">' . $hall_list[$i - 1]['hall_name'] . '</a>
+                                    </li>
+                                ';
+                                }
+                                ?>
                             </ul>
                             <!-- Inner Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" style="padding: 16px;" id="hal1">
-                                    <div class="row" style="color:#444!important; border-bottom: 1px solid #ddd; margin-bottom: 40px; padding: 10px 10px 20px;">
+                                    <div class="row"
+                                         style="color:#444!important; border-bottom: 1px solid #ddd; margin-bottom: 40px; padding: 10px 10px 20px;">
                                         <div class="col-md-6">
                                             <i class="fa fa-calendar pull-left" style="font-size: 65px;"></i><br><b
-                                                    style="font-size: 17px;">JANUARY</b><br>EVENT DAY 1 / HALL 1
+                                                    style="font-size: 17px;">JANUARY</b><br>EVENT
+                                            DAY <?php echo $get_event_day . ' / ' . $hall_list[$get_hall_number - 1]['hall_name'] ?>
                                         </div>
                                         <div class="col-md-6">
-                                            <br><b
-                                                    style="font-size: 17px;">Sub Event Name</b><br>BitCoin
+                                            <br>
+                                            <b
+                                                    style="font-size: 17px;"><?php echo $current_event_day['event_day_topic'] ?>
+                                            </b>
+                                            <br>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -502,7 +519,7 @@ print_r($event_days);
                     <h4>İLETİŞİM SPONSORLARI</h4>
                     <?php
                     foreach ($iletisimSponsors as $sponsor) {
-                        echo '<img class="img-responsive" width="100%" src="img/'.$sponsor['sponsor_photo'].'.png"> ';
+                        echo '<img class="img-responsive" width="100%" src="img/' . $sponsor['sponsor_photo'] . '.png"> ';
                     }
                     ?>
 
@@ -529,7 +546,8 @@ print_r($event_days);
                                             <div class="col-md-10 col-sm-11 col-xs-10">
                                                 Yeni zirve nasıl oluşturabilirim?
                                             </div>
-                                            <div class="col-md-2 col-sm-1 col-xs-2" style="height:100%; border-left: 1px solid #ddd; ">
+                                            <div class="col-md-2 col-sm-1 col-xs-2"
+                                                 style="height:100%; border-left: 1px solid #ddd; ">
                                                 <i class="fa fa-plus" style="font-size: 20px;"></i>
                                             </div>
                                         </div>
@@ -565,7 +583,8 @@ print_r($event_days);
                                             <div class="col-md-10 col-sm-11 col-xs-10">
                                                 Yeni zirve nasıl oluşturabilirim?
                                             </div>
-                                            <div class="col-md-2 col-sm-1 col-xs-2" style="height:100%; border-left: 1px solid #ddd;">
+                                            <div class="col-md-2 col-sm-1 col-xs-2"
+                                                 style="height:100%; border-left: 1px solid #ddd;">
                                                 <i class="fa fa-plus" style="font-size: 20px;"></i>
                                             </div>
                                         </div>
@@ -603,7 +622,8 @@ print_r($event_days);
                                             <div class="col-md-10 col-sm-11 col-xs-10">
                                                 Yeni zirve nasıl oluşturabilirim?
                                             </div>
-                                            <div class="col-md-2 col-sm-1 col-xs-2" style="height:100%; border-left: 1px solid #ddd;">
+                                            <div class="col-md-2 col-sm-1 col-xs-2"
+                                                 style="height:100%; border-left: 1px solid #ddd;">
                                                 <i class="fa fa-plus" style="font-size: 20px;"></i>
                                             </div>
                                         </div>
@@ -641,7 +661,7 @@ print_r($event_days);
                 <h5 style="padding: 10px; text-align: center; font-weight: bold; font-size: 14px; color: #444; border-bottom: 1px solid #ddd;">
                     NEREDE & NE ZAMAN ?
                 </h5>
-                <ul class="event-list"style="margin: 10px;">
+                <ul class="event-list" style="margin: 10px;">
                     <li><a href="#"> NYC - Financial Freedom Investor</a></li>
                     <li><a href="#">Madison Ave New York, NY 10010</a></li>
                     <li><a href="#">Thursday, January 8, 2015</a></li>

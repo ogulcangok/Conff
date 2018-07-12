@@ -2,7 +2,7 @@
     include 'main-register.php';
     require 'event-operations.php';
 
-    $limit = 5;
+    $limit = 10;
     $page = isset($_GET['pageNumber']) && is_numeric($_GET['pageNumber']) ? $_GET['pageNumber'] : 1;
     $category = isset($_GET['category']) ? $_GET['category'] : 'All';
 
@@ -19,8 +19,6 @@
     }
     //all category id
     $event_categories = $db -> query('Select * From event_categories') -> fetchAll(PDO::FETCH_ASSOC);
-
-
 
     $pageCount = ceil($eventCount / $limit);
     $firstEventOfPage = ($page * $limit) - $limit;

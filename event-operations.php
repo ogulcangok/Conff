@@ -9,7 +9,7 @@
 
 function countEvents() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffdb1', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=conffdb1', 'root', 'root');
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -24,7 +24,7 @@ function countEvents() {
 
 function readEvent($direction, $firstEventOfPage, $limit, $category) {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffdb1', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=conffdb1', 'root', 'root');
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -88,7 +88,7 @@ function readEvent($direction, $firstEventOfPage, $limit, $category) {
                                  <a href="#" class="pull-right product-details-hashtag">' . $event['event_hashtag'] . '</a>
                               </div>
                               <div class="col-md-3" style="padding: 0; position: relative">
-                                 <a href="event-detail.php?event-id='.$event['event_id'].'" class="product-inspect-button">İncele</a>
+                                 <a href="event-detail.php?event-id=' . $event['event_id'] . '&event-day=1&hall-number=1" class="product-inspect-button">İncele</a>
                               </div>
                            </div>
                         </div>
