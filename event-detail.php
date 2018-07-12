@@ -66,11 +66,7 @@ $query->execute([
 ]);
 $summitTemp = $query->fetchAll(PDO::FETCH_ASSOC);
 
-
-print_r($hall_list);
-print_r($summitTemp[0]['hall_id']);
-
-$get_hall_number = isset($_GET['hall-number']) && in_array($_GET['hall-number'] ,  $hall_list) && is_numeric($_GET['hall-number']) ? $_GET['hall-number'] : $summitTemp[0]['hall_id'];
+$get_hall_number = isset($_GET['hall-number']) && is_numeric($_GET['hall-number']) ? $_GET['hall-number'] : $summitTemp[0]['hall_id'];
 print_r($get_hall_number);
 
 ?>
@@ -347,8 +343,8 @@ print_r($get_hall_number);
                                 <?php
                                 for ($i = 1; $i <= count($hall_list); $i++) {
                                     echo '
-                                    <li role="presentation" class="' . ($get_hall_number == $i ? 'active' : '') . '">
-                                        <a href="event-detail.php?event-id=' . $get_event_id . '&event-day=' . $get_event_day . '&hall-number=' . $i . '" aria-controls="hal1" role="tab">' . $hall_list[$i - 1]['hall_name'] . '</a>
+                                    <li role="presentation" class="' . ($get_hall_number == $hall_list[$i-1]['hall_id'] ? 'active' : '') . '">
+                                        <a href="event-detail.php?event-id=' . $get_event_id . '&event-day=' . $get_event_day . '&hall-number=' . $hall_list[$i-1]['hall_id'] . '" aria-controls="hal1" role="tab">' . $hall_list[$i - 1]['hall_name'] . '</a>
                                     </li>
                                 ';
                                 }
