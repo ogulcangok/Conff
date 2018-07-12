@@ -4,7 +4,6 @@ require 'event-operations.php';
 
 $get_event_id = isset($_GET['event-id']) && is_numeric($_GET['event-id']) ? $_GET['event-id'] : header('Location:index.php');
 $get_event_day = isset($_GET['event-day']) && is_numeric($_GET['event-day']) ? $_GET['event-day'] : header('Location:index.php');
-$get_hall_number = isset($_GET['hall-number']) && is_numeric($_GET['hall-number']) ? $_GET['hall-number'] : header('Location:index.php');
 
 $query = $db->prepare('SELECT * FROM event WHERE event_id = ?');
 $query->execute([
@@ -42,7 +41,6 @@ $query->execute([
 ]);
 $summit_list = $query->fetchAll(PDO::FETCH_ASSOC);
 
-
 $hall_list = array();
 foreach ($summit_list as $summit) {
     $query = $db->prepare('SELECT * FROM hall WHERE hall_id = ?');
@@ -52,6 +50,28 @@ foreach ($summit_list as $summit) {
     array_push($hall_list, $query->fetch(PDO::FETCH_ASSOC));
 }
 array_unique($hall_list);
+
+function getHallNameByHallId($hall_list, $hall_id) {
+    foreach ($hall_list as $hall) {
+        if ($hall['hall_id'] == $hall_id) {
+            return $hall['hall_name'];
+        }
+    }
+}
+//print_r($hall_list);
+
+$query = $db->prepare('SELECT hall_id FROM summit WHERE event_day_id = ? AND event_day =? ');
+$query->execute([
+    $current_event_day['event_day_id'],$get_event_day
+]);
+$summitTemp = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+print_r($hall_list);
+print_r($summitTemp[0]['hall_id']);
+
+$get_hall_number = isset($_GET['hall-number']) && in_array($_GET['hall-number'] ,  $hall_list) && is_numeric($_GET['hall-number']) ? $_GET['hall-number'] : $summitTemp[0]['hall_id'];
+print_r($get_hall_number);
 
 ?>
 <!doctype html>
@@ -342,7 +362,7 @@ array_unique($hall_list);
                                         <div class="col-md-6">
                                             <i class="fa fa-calendar pull-left" style="font-size: 65px;"></i><br><b
                                                     style="font-size: 17px;">JANUARY</b><br>EVENT
-                                            DAY <?php echo $get_event_day . ' / ' . $hall_list[$get_hall_number - 1]['hall_name'] ?>
+                                            DAY <?php echo $get_event_day . ' / ' . getHallNameByHallId($hall_list, $get_hall_number)?>
                                         </div>
                                         <div class="col-md-6">
                                             <br>
@@ -352,121 +372,70 @@ array_unique($hall_list);
                                             <br>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-3 col-lg-3 " align="center">
-                                            <img alt="User Pic" src="img/sell/1.jpg"
-                                                 class="img-circle" style="border: 2px solid #444;">
-                                            <br>
+                                    <?php foreach ($summit_list as $summit):?>
+                                        <?php
+                                        if($summit['hall_id'] == $get_hall_number):
+                                        $startTime = explode(" ", $summit['summit_start_time']);
+                                        $endTime = explode(" ", $summit['summit_end_time']);
 
-                                            <h4 style="font-weight: bold; color: #444; margin-top: 10px;">JENRY DOE</h4>
-                                            <h5 style="color: #666">BitCoin History</h5>
-                                        </div>
-                                        <div class=" col-md-9 col-lg-9 ">
-                                            <div class="btm-mrg-60 property-listing">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="container-fluid brdr bgc-fff ">
-                                                            <div class="row">
-                                                                <div class="col-md-12 product-details-container"
-                                                                     style="height: 55px;">
-                                                         <span class="glyphicon glyphicon-time product-details-icon"
-                                                               aria-hidden="true" style="font-size: 35px;"></span>
-                                                                    <span class="fnt-arial product-details-text"
-                                                                          style="font-size: 25px;">13:00 - 15:00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="border-top: 1px solid #bbb ;">
-                                                                <div class="media">
-                                                                    <div class="clearfix visible-sm"></div>
-                                                                    <div class="media-body fnt-smaller">
-                                                                        <p class="hidden-xs" style="padding: 16px;">
-                                                                            Lorem ipsum
-                                                                            dolor
-                                                                            sit amet,
-                                                                            consectetur
-                                                                            adipiscing elit. Pellentesque gravida
-                                                                            euismod
-                                                                            eleifend. Nullam eget placerat nisl. Sed vel
-                                                                            massa eget justo facilisis luctus.
-                                                                            Vestibulum at
-                                                                            consequat est, quis interdum massa.
-                                                                            Pellentesque convallis, ligula ac laoreet
-                                                                            semper, nibh dui luctus arcu, at interdum
-                                                                            mauris tortor a arcu. Curabitur quis nisl
-                                                                            nec
-                                                                            ligula facilisis elementum. In
-                                                                            consectetur
-                                                                        </p>
+                                        $query = $db->prepare('SELECT * FROM speaker WHERE summit_id = ?');
+                                        $query->execute([
+                                            $summit['summit_id']
+                                        ]);
+                                        $speakers = $query->fetchAll(PDO::FETCH_ASSOC);
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3 " align="center">
+                                                <img alt="User Pic"
+                                                     src="img/<?php echo $summit['summit_moderator_photo'] ?>.jpeg"
+                                                     class="img-circle" style="border: 2px solid #444;">
+                                                <br>
+                                                <h4 style="font-weight: bold; color: #444; margin-top: 10px;"> <?php echo $summit['summit_moderator'] ?></h4>
+                                                <h5 style="color: #666"> <?php echo $summit['summit_topic'] ?></h5>
+                                            </div>
+                                            <div class=" col-md-9 col-lg-9 ">
+                                                <div class="btm-mrg-60 property-listing">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="container-fluid brdr bgc-fff ">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 product-details-container" style="height: 55px;">
+                                                                        <span class="glyphicon glyphicon-time product-details-icon" aria-hidden="true" style="font-size: 35px;"></span>
+                                                                        <span class="fnt-arial product-details-text" style="font-size: 25px;"><?php echo $startTime[1] . '-' . $endTime[1] ?></span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row"
-                                                                 style="border-top: 1px solid #bbb; padding: 16px;">
-                                                                <b>Speakers: </b> Onur Ekşi, Emre Kalemtaş, John Doe
+                                                                <div class="row" style="border-top: 1px solid #bbb ;">
+                                                                    <div class="media">
+                                                                        <div class="clearfix visible-sm"></div>
+                                                                        <div class="media-body fnt-smaller">
+                                                                            <p class="hidden-xs" style="padding: 16px;">
+                                                                                <?php echo $summit['summit_info'] ?>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row"
+                                                                     style="border-top: 1px solid #bbb; padding: 16px;">
+                                                                    <b>Speakers: </b>
+                                                                    <?php for ($i = 0; $i < count($speakers); $i++) {
+                                                                        $speaker = $speakers[$i];
+                                                                        if ($i + 1 == count($speakers))
+                                                                            echo $speaker['speaker_name'];
+                                                                        else
+                                                                            echo $speaker['speaker_name'] . ',';
+                                                                    }
+                                                                    ?>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 col-lg-3 " align="center">
-                                            <img alt="User Pic" src="img/sell/1.jpg"
-                                                 class="img-circle" style="border: 2px solid #444;">
-                                            <br>
-                                            <h4 style="font-weight: bold; color: #444; margin-top: 10px;">JENRY DOE</h4>
-                                            <h5 style="color: #666">PHP DEVELOPMENT</h5>
-                                        </div>
-                                        <div class=" col-md-9 col-lg-9 ">
-                                            <div class="btm-mrg-60 property-listing">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="container-fluid brdr bgc-fff ">
-                                                            <div class="row">
-                                                                <div class="col-md-12 product-details-container"
-                                                                     style="height: 55px;">
-                                                         <span class="glyphicon glyphicon-time product-details-icon"
-                                                               aria-hidden="true" style="font-size: 35px;"></span>
-                                                                    <span class="fnt-arial product-details-text"
-                                                                          style="font-size: 25px;">13:00 - 15:00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="border-top: 1px solid #bbb ;">
-                                                                <div class="media">
-                                                                    <div class="clearfix visible-sm"></div>
-                                                                    <div class="media-body fnt-smaller">
-                                                                        <p class="hidden-xs" style="padding: 16px;">
-                                                                            Lorem ipsum
-                                                                            dolor
-                                                                            sit amet,
-                                                                            consectetur
-                                                                            adipiscing elit. Pellentesque gravida
-                                                                            euismod
-                                                                            eleifend. Nullam eget placerat nisl. Sed vel
-                                                                            massa eget justo facilisis luctus.
-                                                                            Vestibulum at
-                                                                            consequat est, quis interdum massa.
-                                                                            Pellentesque convallis, ligula ac laoreet
-                                                                            semper, nibh dui luctus arcu, at interdum
-                                                                            mauris tortor a arcu. Curabitur quis nisl
-                                                                            nec
-                                                                            ligula facilisis elementum. In
-                                                                            consectetur
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row"
-                                                                 style="border-top: 1px solid #bbb; padding: 16px;">
-                                                                <b>Speakers: </b> Onur Ekşi, Emre Kalemtaş, John Doe
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+
+
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="hal2">2</div>
                                 <div role="tabpanel" class="tab-pane" id="hal3">3</div>
@@ -479,7 +448,6 @@ array_unique($hall_list);
                     <div role="tabpanel" class="tab-pane" id="settings">4</div>
                 </div>
             </div>
-            -------------------------------------------------------------------------------------------------------------------------------------------------
             <h3 style="font-weight: bold; color: #444; margin-top: 60px; border-bottom: 1px solid #dd153c; padding-bottom: 15px;">
                 ZİRVE SOSYAL MEDYA
             </h3>
