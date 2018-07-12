@@ -1,0 +1,781 @@
+/* Large desktop :1920px. */
+@media (min-width: 1920px) {
+    .container {width: 1230px}
+    .slider-area .text-content {margin-top: 31.5%}
+    .about-area .section-padding {
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+    .adventure-price-link-two .adventure-link > a {margin-right: 20px}
+    .single-adventure-two:hover .adventure-price-link-two span.trip-price, .single-adventure-two:hover .adventure-price-link-two span.trip-person {
+        font-size: 30px;
+    }
+    .single-adventure-two:hover .adventure-price-link-two span.trip-person {font-size: 20px}
+    .footer-widget-area::after {height: 90px}
+    .footer-widget-area {padding-top: 207px}
+    .contact-form {background-size: 40% 100%}
+    .fun-factor-area {padding-bottom: 200px}
+    .fun-factor-area::after {bottom: 0}
+    .newsletter-area {padding-bottom: 211px}
+    .newsletter-area::after {height: 111px}
+    .slider-area.home-two-slider .text-content {margin-top: 38.5%}
+    .fun-factor-area::after {height: 108px}
+    .footer-widget-area.footer-widget-two {padding-top: 210px}
+    .footer-widget-two.footer-widget-area::after {height: 110px}
+    .slider-area.slider-three .text-content {margin-top: 52.7%}
+    .slider-three .slider-icon-container {margin-top: 83.5%}
+    .preview-2 .nivo-directionNav a {top: 57%}
+    .slider-three .preview-2 .nivo-directionNav a.nivo-prevNav {top: 55%}
+    .about-area.about-area-three::after {height: 63px}
+    .about-area.about-area-three {
+        padding-bottom: 0;
+        padding-top: 60px;
+    }
+    .fun-factor-area.fun-factor-three {padding-bottom: 197px}
+    .fun-factor-area.fun-factor-three::after {height: 63px}
+    .banner-area {padding-top: 311px}
+    .banner-area::after {height: 112px}
+    .breadcrumb {margin: 72px auto 14px}
+    .banner-area.grid-two::after {height: 109px}
+    .banner-area.list {padding-bottom: 164px}
+    .banner-area.list::after {height: 61px}
+    .trip-information {background-size: 49.8% 100%}
+    .trip-booking-info {
+        position: relative;
+        right: -127px;
+    }
+    .trip-information.details-two {background-size: 49.5% 100%}
+    .error-area {
+        background-size: 48.5% 100%;
+        padding-bottom: 127px;
+        padding-top: 206px;
+    }
+   .contact-banner .breadcrumb, .about-banner .breadcrumb, .banner-area.blog-one .breadcrumb, .banner-area.blog-two .breadcrumb, .banner-area.signin-banner .breadcrumb {
+        margin: 58px auto 14px;
+    } 
+    .about-adventures {background-size: 49.3% 100%}
+    
+    .banner-area.blog-one, .banner-area.blog-two {padding-top: 296px}
+    .blog-two-text-container {padding-bottom: 41px}
+}
+    
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+.container {width:970px}
+    .mainmenu {margin-left: 10px}
+    .mainmenu ul#nav li {margin: 0 12px}
+    .slider-area .text-content {margin-top: 23.2%}
+    .banner-content h1 {
+        font-size: 80px;
+        line-height: 70px;
+    }
+    .banner-content h2 {font-size: 30px}
+    form#banner-searchbox {margin: 25px auto 0}
+    button#btn-search-category {margin-top: 24px}
+    .single-service {
+        height: 134px;
+        width: 131px;
+    }
+    .single-icon {margin-top: 13px}
+    .about-text h1 {
+        font-size: 25px;
+        line-height: 24px;
+        margin-bottom: 18px;
+    }
+    .about-area .section-padding {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .about-area .section-title, .service-about-area .section-title {margin-bottom: 20px}
+    .mainmenu ul#nav li .megamenu {
+        left: -333px;
+        width: 940px;
+    }
+    .mainmenu ul#nav li .megamenu span > a, .mainmenu ul#nav li ul.sub-menu li a {margin: 0 16px;}
+    .mainmenu ul.sub-menu {
+        padding: 25px 0 25px 14px;
+        width: 200px;
+    }
+    .single-portfolio:hover .portfolio-text::after, .single-member:hover .member-text::after {top: -3px}
+    .single-service::before {
+        bottom: 3px;
+        left: -1px;
+        width: 51%;
+    }
+    .single-service::after {
+        bottom: 3px;
+        right: -1px;
+        width: 51%;
+    }
+    .single-fun-factor {
+        height: 132px;
+        width: 132px;
+    }
+    .fun-border-left, .fun-border-right {height: 141px}
+    .single-fun-factor > h5, .fun-factor-three .single-icon-three h5 {display: none}
+    .fun-border-left::after {
+        bottom: -29px;
+        height: 49.5%;
+        left: 34px;
+        transform: rotate(82deg);
+    }
+    .fun-border-right::after {
+        bottom: -29px;
+        height: 49.5%;
+        right: 34px;
+        transform: rotate(-82deg);
+    }
+    .single-fun-factor::before, .single-fun-factor::after {border-width: 5px 36px}
+    .best-sell-slider a {margin-bottom: 25px}
+    .sell-text-container > p {
+        font-size: 14px;
+        line-height: 23px;
+    }
+    .sell-text-container > .button-one {
+        line-height: 35px;
+        margin-bottom: 26px;
+        margin-top: 6px;
+        padding: 0 33px;
+    }
+    .carousel-style-one .owl-controls .owl-buttons {top: -61px}
+    .newsletter-area {padding-bottom: 166px}
+    .newsletter-area::after {height: 67px}
+    .blog-text > h4 {margin-bottom: 7px}
+    .blog-text {
+        margin: 0px -22px 0 0;
+        padding: 10px 0 8px 12px;
+    }
+    .blog-area .button-one {
+        line-height: 35px;
+        margin-bottom: 4px;
+        margin-top: 6px;
+        padding: 0 21px;
+    }
+    .member-text h4 a {font-size: 18px}
+    #footer-menu li a {
+        margin-left: 9px;
+        padding-left: 9px;
+    }
+    .service-about-area {
+        margin-bottom: 80px;
+        margin-top: 50px;
+    }
+    .about-text p {font-size: 15px}
+    .fun-factor-two.fun-factor-area {padding-bottom: 223px}
+    .fun-factor-two .single-fun-factor {height: 150px}
+    .fun-factor-two .fun-border-left, .fun-factor-two .fun-border-right {height: 148px}
+    .fun-factor-two .single-fun-factor::after {border-width: 5px 32px}
+    .fun-factor-two .single-fun-factor::before, .fun-factor-two .single-fun-factor::after {border-width: 5px 33px}
+    .fun-factor-two .fun-border-left::after {
+        bottom: -39px;
+        height: 45.5%;
+        left: 33px;
+        transform: rotate(98deg);
+    }
+    .fun-factor-two .fun-border-right::after {
+        bottom: -39px;
+        height: 45.5%;
+        right: 33px;
+        transform: rotate(-98deg);
+    }
+    .blog-two-area .blog-text, .blog-three-area .blog-text {padding: 20px 8px 4px 10px}
+    .blog-two-area .blog-link, .blog-three-area .blog-link {margin-top: 12px}
+    .single-member:hover .member-text.effect-bottom::after {top: 62px}
+    .slider-three .slider-icon-container {margin-top: 64%;}
+    .fun-factor-three .single-icon-three {
+        height: 133px;
+        width: 132px;
+    }
+    .fun-factor-three .icon-border-left {height: 134px}
+    .fun-factor-three .icon-border-right {height: 142px}
+    .single-icon-three::after {border-width: 5px 69.5px}
+    .fun-factor-three .icon-border-left::after {
+        bottom: -69px;
+        height: 132px;
+        left: 65px;
+        transform: rotate(93deg);
+    }
+    .fun-factor-three .single-icon-three:hover::after {border-width: 5px 66.5px}
+    .footer-widget-area.footer-widget-two {padding-top: 164px}   
+    .adventure-price-link .trip-price {
+        font-size: 22px;
+        width: auto;
+    }
+    .adventure-price-link .trip-person {
+        font-size: 16px;
+        padding-left: 5px;
+        top: -2px;
+    }
+    .adventure-price-link {padding: 0 6px 11px}
+    .transparent-overlay {padding: 0 7px}
+    .adventure-link > a {font-size: 17px}
+    .single-adventure:hover .trip-time, .single-adventure:hover .trip-level {margin-bottom: 15px}
+    .single-adventure:hover .adventure-text.effect-bottom::after {bottom: 54px}
+    .single-adventure-two:hover .adventure-text-container {top: 1.75%}
+    .single-adventure-two:hover .adventure-price-link-two {top: 29.5%}
+    .adventure-text-two {padding: 16px 8px 17px 7px}
+    .adventure-text-container h4 a {font-size: 16px}
+    .adventure-list-text > h2 {
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+    .adventure-list-text > p {line-height: 24px}
+    .adventure-list-image {padding-top: 5px}
+    .image-bottom > li {height: 49px}
+    .adventure-list-image > h2 {
+        font-size: 16px;
+        margin: 7px 9px 0;
+        padding-bottom: 12px;
+    }
+    .adventure-list-image {width: 22%}
+    .adventure-list-text {width: 76%}
+    .adventure-list-image::after {
+        height: 100%;
+        top: 0;
+    }
+    .adventure-list-container::after {bottom: -7px}
+
+    .details-button button#btn-search-category {padding: 0 30px}
+    .details-info {margin-bottom: 35px}
+    .details-info li span {
+        width: auto;
+        margin-right: 10px;
+    }
+    .trip-info-left-text .section-title {margin-bottom: 30px}
+    .trip-info-left-text p, .about-adventures p {line-height: 26px}
+    .trip-booking-info {padding-top: 100px}
+    .trip-status, .trip-price {width: 23%}
+    .trip-action {width: 18%}
+    .error-area {
+        background: #edecec url("img/banner/27.html") no-repeat scroll right top / 51% 100%;
+        padding-bottom: 85px;
+        padding-top: 140px;
+    }
+    .error-text-container > p {
+        font-size: 19px;
+        line-height: 25px;
+    }
+    .include-text > h4, .contact-text > h4, .about-text-container > h4 {font-size: 20px}
+    .about-adventures p {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .about-adventures {
+        padding-bottom: 80px;
+        padding-top: 80px;
+    }
+    .single-skill-text > h4 {font-size: 17px}
+    .advertise-area {font-size: 29px}
+    .advertise-area a {font-size: 32px}
+    .blog-archive {width: 99%}
+    .post-img {
+        margin-right: 5px;
+        width: 59px;
+    }
+    .blog-post-two .single-blog-post-text {
+        margin-top: -17px;
+        padding-top: 23px;
+    }
+    .single-blog-post-text > p {font-size: 14px}
+    .blog-two-text-container {padding-bottom: 31px}
+    .blog-post-two .single-blog-post:hover .blog-two-text-container::before {left: -33px}
+    .contact-us-form::after {
+        left: 43%;
+        transform: skewX(-9deg);
+    }
+    .contact-us-form.section-padding {
+        padding-bottom: 70px;
+        padding-top: 70px;
+    }
+    .contact-form {height: auto}
+    #googleMap {height: 676px !important}
+}
+ 
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+.container {width:750px}
+    .logo {
+        margin-left: 0;
+        text-align: center;
+    }
+    header {position: inherit}
+    .header-logo-menu {background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0}
+    .logo-menu-bg, .header-three .header-logo-menu, .trip-information {background: rgba(0, 0, 0, 0) none repeat scroll 0 0}
+    .mobile-menu-area {display: block}
+    .slider-area .text-content {
+        left: 0;
+        margin-top: 6%;
+        max-width: 100%;
+        position: absolute;
+        right: 0;
+    }
+    .banner-content h1 {font-size: 80px}
+    form#banner-searchbox {
+        margin: 30px auto 0;
+        width: 673px;
+    }
+    .single-service {
+        height: 152px;
+        width: 158px;
+    }
+    .single-icon {margin-top: 22px}
+    .about-area {background-size: 100% 100%}
+    .about-area .section-padding {
+        padding-bottom: 110px;
+        padding-top: 110px;
+    }
+    .single-portfolio:hover .portfolio-text::after, .single-member:hover .member-text::after {top: -3px}
+    .single-fun-factor, .single-skill-icon {width: 157px}
+    .sell-text-container > p {font-size: 14px}
+    .single-blog .blog-image a {margin-right: 76px}
+    .single-blog .date-time {right: 96px}
+    .single-blog .blog-text {
+        margin: 34px -70px 24px 0;
+        padding: 15px 0 13px 21px;
+    }
+    .blog-area .single-blog {margin-bottom: 30px}
+    .single-blog .margin-left {margin-left: -126px}
+    .blog-area .single-blog .blog-link {margin-right: 76px}
+    .fun-factor-area::after {height: 72px}
+    .newsletter-area::after {height: 56px}
+    .newsletter-content button {padding: 0 28px}
+    .footer-widget-area::after {height: 46px}
+    .footer-link > a {margin-right: 15px}
+    .payment-image > img, .single-adventure-two img, .adventure-list-text, .contact-form::before {width: 100%}
+    .footer-area span {
+        display: block;
+        margin-bottom: 15px;
+    }
+    #footer-menu {text-align: left} 
+    .service-about-area.text-center {
+        background: #ffffff none repeat scroll 0 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .single-service-two {padding-top: 60px}
+    .slider-area.home-two-slider .text-content {margin-top: 8%}
+    .fun-factor-two .single-fun-factor::after, .fun-factor-two .single-fun-factor::before {border-width: 5px 39px}
+    .fun-factor-two .single-fun-factor {width: 156px}
+    .fun-factor-two .fun-border-left::after, .fun-factor-two .fun-border-right::after {
+        bottom: -44px;
+        height: 46%;
+        left: 38px;
+    }
+    .fun-factor-two .fun-border-right::after {
+        right: 38px !important;
+        left: auto
+    }
+    .blog-two-area .single-blog .blog-text {
+        margin: 20px -125px 24px 0;
+        padding: 15px 10px 13px 21px;
+    }
+    .single-member:hover .member-text.effect-bottom::after {top: 65px}
+    .footer-widget-area.footer-widget-two {padding-top: 155px}   
+    header.header-three {background: #001128 none repeat scroll 0 0}
+    .slider-area.slider-three .text-content {
+        left: 0;
+        margin-top: 9.5%;
+        right: 0;
+    }
+    .preview-2 .nivo-directionNav a {top: 49%}
+    .slider-icon-container, .adventure-list-image, .google-map-area, .contact-us-form::after {display: none}
+    .blog-three-area .single-blog .blog-text {
+        margin: -16px -123px 24px 0;
+        padding: 37px 29px 19px 25px;
+    }
+    .about-area.text-center.about-area-three {
+        background: rgba(0, 192, 255, 0.4) none repeat scroll 0 0 !important;
+        padding-top: 0;
+    }
+    .about-area.about-area-three .section-padding {padding-bottom: 50px}
+    .about-area .section-title.title-three {margin-bottom: 45px}
+    .adventure-link > a {
+        font-size: 17px;
+        margin-right: 4px;
+    }
+    .grid-two {padding-top: 110px}
+    .widget-icon span {width: 20%}
+    .widget-icon .slider-values > input {width: 24%}
+    .adventure-grid-two-area .row .col-md-4:nth-child(odd) .single-adventure-two:hover .adventure-text-container{
+        left: calc(100% - 19px);
+        right: auto;
+        text-align: left
+    }
+    .adventure-grid-two-area .row .col-md-4:nth-child(odd) .single-adventure-two:hover .adventure-text-container::after {
+        border-color: rgba(255, 174, 0, 0) rgba(0, 0, 0, 0) rgba(255, 174, 0, 0.9) rgba(255, 174, 0, 0.9);
+        right: -143px;
+        transform: rotate(90deg);
+        left: auto;
+    }    
+    .adventure-grid-two-area .row .col-md-4:nth-child(even) .single-adventure-two:hover .adventure-text-container{
+        right: calc(100% - 19px);
+        left: auto;
+        text-align: right
+    }
+    .adventure-grid-two-area .row .col-md-4:nth-child(even) .single-adventure-two:hover .adventure-text-container::after {
+        border-color: rgba(0, 0, 0, 0) rgba(255, 174, 0, 0.9) rgba(255, 174, 0, 0.9) rgba(0, 0, 0, 0);
+        left: -143px;
+        transform: rotate(-90deg);
+        right: auto;
+    }
+    .single-adventure-two:hover .adventure-text-container {
+        top: 20.25%;
+        padding: 21px 8px 20px 9px;
+    }
+    .single-adventure-two:hover .adventure-price-link-two {top: 37.5%}
+    .banner-area.list {padding-top: 100px}
+    .adventure-list-text > h1 {
+        margin-bottom: 7px;
+        padding-top: 14px;
+        position: relative;
+        z-index: 999;
+    }
+    .adventure-list-text > h2 {
+        font-size: 28px;
+        margin-bottom: 3px;
+    }
+    .adventure-list-text > p {line-height: 26px}
+    .list-buttons {margin-top: 10px}
+    .list-buttons .button-one {
+        line-height: 35px;
+        margin-bottom: 10px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 9;
+    }
+    .adventure-list-container::before {top: -5px}
+    .single-list-item {margin-bottom: 50px}
+    .adventure-list-container {padding-left: 20px}
+    .banner-area, .banner-area.contact-banner, .banner-area.about-banner, .banner-area.contact-banner, .banner-area.blog-one, .banner-area.blog-two, .banner-area.signin-banner {
+        padding-top: 110px;
+    }  
+    .trip-information {padding: 0}
+    .trip-action {width: 20%}
+    .trip-status, .trip-price {width: 19%}   
+    header.fixed .header-logo-menu {
+        background: #212227 none repeat scroll 0 0;
+        position: inherit;
+    }
+    .trip-information.details-two, .error-area, .about-adventures {background: rgba(33, 34, 39, 0.15) none repeat scroll 0 0}
+    .details-two .trip-info-left-text {
+        padding-top: 100px;
+        padding-bottom: 100px
+    }
+    .error-area {
+        padding-bottom: 80px;
+        padding-top: 65px;
+    }
+    .blog-post-area .tooltip-icons .widget-icon > span {
+        margin-bottom: 0;
+        width: 12%;
+    }
+    .single-blog-post:first-child {margin-top: 40px}  
+    .blog-post-two .single-blog-post-text {
+        margin-top: -17px;
+        padding-top: 23px;
+    }
+    .single-blog-post-text > p {font-size: 14px}
+    .blog-two-text-container {padding-bottom: 36px}
+    .blog-post-two .single-blog-post:hover .blog-two-text-container::before {left: -33px}
+    .comment-btn {margin-top: 25px}
+    .sign-in-area .section-title.title-right {
+        margin-top: 80px;
+        overflow: hidden;
+    }
+    .contact-form {height: auto}
+}
+ 
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.container {width:300px}
+    .mobile-menu-area {display: block}
+    header {position: inherit}  
+    .header-r-cart {margin-left: 0}
+    .header-top-right {float: left}
+    .logo-menu-bg, .header-three .header-logo-menu, .about-adventures, .trip-information {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .header-logo-menu {background: #333333 none repeat scroll 0 0}
+    .logo {
+        margin-left: 0;
+        text-align: center
+    }
+    .banner-content h1 {
+        font-size: 28px;
+        margin-bottom: 6px;
+    }
+    .slider-area .text-content, .slider-area.slider-three .text-content {
+        left: 0;
+        margin-top: 10%;
+        max-width: 100%;
+        right: 0;
+    }
+    .nivo-directionNav, .blog-text::after, .carousel-style-two.owl-theme .owl-buttons div, .single-adventure-two:hover .adventure-text-container, .blog-three-area .blog-text::before, .adventure-list-image, .adventure-list-container::before, .adventure-list-container::after, .adventure-list-link::after, .adventure-img::after, .adventures-grid.list .list-rating, .blog-post-two .single-blog-post:hover .blog-two-text-container::after, .google-map-area, .contact-us-form::after  {
+        display: none;
+    }
+    .banner-content h2 {font-size: 17px}
+    .single-service {margin: 0 auto 25px}
+    .section-padding {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .section-title h1 {
+        font-size: 29px;
+        line-height: 42px;
+    }
+    .section-title {margin-bottom: 40px}
+    .portfolio-area .col-md-3 .single-portfolio{margin-bottom: 30px}
+    .best-sell-area .col-md-6 > img {margin-top: 40px}
+    .newsletter-area {
+        padding-bottom: 62px;
+        padding-top: 30px;
+    }
+    .newsletter-area .section-title {margin-bottom: 20px}
+    .newsletter-content .row .col-md-3 {
+        margin: 20px auto 0;
+        text-align: center;
+    }
+    .newsletter-area::after {height: 19px}
+    .newsletter-content button {
+        display: block;
+        margin: 20px auto 0;
+    }
+    .date-time {right: 0}
+    .blog-carousel .blog-text {margin: 10px 0}  
+    .blog-carousel .single-blog, .single-member {margin-bottom: 20px}
+    .single-blog .margin-left {margin-left: 0}
+    .single-member:hover .member-text.effect-bottom::after {top: 66px}
+    .member-text h4 a {font-size: 17px} 
+    .footer-widget-area, .footer-widget-area.footer-widget-two, .footer-widget-area.footer-widget-three {
+        padding-bottom: 60px;
+        padding-top: 80px;
+    }
+    .single-footer-widget.contact-text-info li:last-child {margin-bottom: 0}
+    .single-footer-widget {
+        margin-bottom: 32px;
+        overflow: hidden;
+    }
+    .footer-link, .payment-image {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .footer-link > a {
+        font-size: 21px;
+        height: 40px;
+        margin-right: 11px;
+        width: 40px;
+    }
+    .payment-image {margin-top: 40px}
+    .payment-image > img, .adventure-list-text, .details-info > li {width: 100%}
+    .footer-widget-area::after {height: 16px}
+    .footer-area span {
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    #footer-menu a {
+        margin-left: 6px;
+        padding-left: 6px;
+    }
+    #footer-menu {text-align: center}
+    .section-title h1::before {
+        margin-left: -135px;
+        width: 100px;
+    }
+    .section-title h1::after {
+        margin-right: -135px;
+        width: 100px;
+    }
+    .payment-image {float: left}
+    .home-two-slider .banner-content h1 {
+        font-size: 25px;
+        line-height: 62px;
+    }
+    .portfolio-area.portfolio-two {padding-top: 50px}
+    .blog-area.blog-three-area {padding-top: 0}
+    header.header-three {background: #001128 none repeat scroll 0 0}
+    .slider-three .banner-content h1 {
+        font-size: 23px;
+        margin-bottom: 9px;
+    }
+    .slider-area.home-two-slider .text-content {margin-top: 9%}
+    .newsletter-area.newsletter-two {padding-bottom: 65px}
+    .portfolio-area.portfolio-three {padding-top: 40px}
+    .shop-item-filter .adventure-cat {margin-bottom: 20px}
+    .shop-item-filter .adventure-tab {float: left}
+    .shop-item-filter .adventure-tab ul.nav li:first-child a {margin-left: 0}
+    .adventure-price-link .trip-price {
+        font-size: 21px;
+        width: auto;
+    }
+    .adventure-price-link .trip-person {
+        font-size: 15px;
+        padding-left: 2px;
+        top: -1px;
+    }
+    .adventure-link > a {
+        font-size: 17px;
+        margin-right: 3px;
+    }
+    .adventure-price-link {padding: 0 5px 11px}
+    .transparent-overlay {padding: 0 7px}
+    .single-adventure:hover .adventure-price-link {
+        padding-bottom: 7px;
+        padding-top: 9px;
+    }
+    .single-adventure:hover .trip-time, .single-adventure:hover .trip-level {margin-bottom: 10px}
+    .single-adventure:hover .transparent-overlay {margin-bottom: 7px}
+    .single-adventure:hover .adventure-text.effect-bottom::after {bottom: 33px}
+    .adventure-text h4 a {font-size: 18px}
+    .banner-area, .banner-area.contact-banner, .banner-area.about-banner, .banner-area.contact-banner, .banner-area.blog-one, .banner-area.blog-two, .banner-area.signin-banner {
+        padding-top: 55px;
+    }
+    .pagination li {
+        height: 30px;
+        line-height: 25px;
+        margin: 0 2px;
+        width: 30px;
+    }
+    .adventure-tab {margin-top: 15px}
+    .adventures-grid.grid-two-tab .adventure-cat.box-small {
+        float: left;
+        margin-top: 20px;
+    }
+    .banner-area.list {
+        padding-bottom: 130px;
+        padding-top: 100px;
+    }
+    .col-md-8.margin-left-list {
+        margin-left: 0;
+        margin-top: 30px;
+        padding-left: 15px;
+    }
+    .adventure-list-container {
+        margin-right: 0;
+        padding-left: 15px;
+    }
+    .single-list-item .col-md-4 {padding-right: 15px}
+    .single-list-item {margin-bottom: 30px}
+    .adventure-list-link {
+        margin: 15px 0;
+        position: inherit;
+    }
+    .list .adventure-img {border: 3px solid #f0f0f0}
+    .trip-information {padding: 0}
+    .details-social-link a {
+        height: 45px;
+        line-height: 45px;
+        margin-right: 5px;
+        width: 45px;
+    }
+    .include-item {margin-bottom: 25px}
+    header.fixed .header-logo-menu {
+        background: #212227 none repeat scroll 0 0;
+        position: inherit;
+    }
+    .trip-information.details-two, .error-area {background: rgba(33, 34, 39, 0.15) none repeat scroll 0 0}
+    .details-two .trip-info-left-text {
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    .similar-area .single-adventure, .single-gallery-item {margin-bottom: 40px !important}
+    .error-area {
+        padding-bottom: 80px;
+        padding-top: 65px;
+    }
+    .author-comments span {margin-right: 8px}
+    .single-blog-post-img .date-time .date {
+        line-height: 44px;
+        padding-left: 13px;
+        width: 71px;
+    }
+    .single-blog-post-img .date-time .month {
+        line-height: 42px;
+        padding-left: 0px;
+        width: 49px;
+    }
+    .blog-links {
+        float: left;
+        margin-top: 20px;
+    }
+    .single-blog-post {overflow: hidden}
+    .blog-button-links {margin-top: 15px}
+    .blog-two-text-container {
+        margin-right: 0;
+        padding: 0 10px;
+    }
+    .blog-post-two .single-blog-post-text h4 a {font-size: 23px}
+    .blog-post-two .blog-links {
+        float: none;
+        height: 38px;
+        margin-bottom: 23px;
+        overflow: hidden;
+    }
+    .blog-post-details .blog-links {float: left}
+    .blog-post-details .blog-links a:first-child {margin-left: 0}
+    .author-image {width: 55px}
+    .author-image img {width: 45px}
+    span.comment-time {
+        border: 0 none;
+        line-height: 20px;
+        margin-right: 5px;
+        padding-right: 0;
+    }
+    .single-comment.comment-reply {padding-left: 23px}
+    .author-info > h4 {font-size: 15px}
+    .comment-time, span.reply {line-height: 21px}
+    .comment-btn {margin-top: 25px}
+    .sign-in-area .section-title.title-right {margin-top: 50px}
+    .contact-form::before {width: 100%}
+    .contact-form {height: auto}
+    .contact-information-area .contact-info {margin-bottom: 25px}
+}
+ 
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container {width:450px}
+     .mobile-menu-area {
+        display: block
+    }
+    .banner-content h1 {
+        font-size: 54px;
+        margin-bottom: 13px;
+    }
+    .banner-content h2 {font-size: 35px}   
+    .slider-area .text-content, .slider-area.slider-three .text-content {margin-top: 21%}
+.single-portfolio img, .blog-carousel .blog-image img, .team-image img, .single-gallery-item .gallery-image a img, .single-adventure img, .grid-two-tab .single-adventure-two a img, .list .adventure-img img, .blog-post-two .blog-image a img, .blog-post-two .blog-image a  {
+    width: 100%;
+}
+    .header-top-right {
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        width: 59%;
+    }
+    .home-two-slider .banner-content h1 {font-size: 46px}
+    .slider-area.home-two-slider .text-content {margin-top: 28%}
+    .slider-three .banner-content h1 {font-size: 43px}
+    .slider-three .banner-content h2 {font-size: 35px}
+    .newsletter-area {padding-bottom: 82px}
+    .newsletter-area::after {height: 43px}
+    .footer-widget-area::after {height: 35px}
+    .footer-widget-area, .footer-widget-area.footer-widget-two, .footer-widget-area.footer-widget-three {
+        padding-bottom: 60px;
+        padding-top: 115px;
+    }
+    .single-adventure:hover .transparent-overlay {margin-bottom: 15px}
+    .single-adventure:hover .adventure-text.effect-bottom::after {bottom: 11px}
+    .single-sidebar-widget .hover-effect a img {display: none}
+    .adventures-grid.grid-two-tab .adventure-cat.box-small {
+        margin-left: 10px;
+        margin-top: 16px;
+    }
+    .single-adventure-two:hover .adventure-price-link-two {top: 39%}
+    .list-buttons .button-one {margin-right: 15px}
+    .blog-links, .blog-post-two .blog-links {
+        float: right;
+        margin-top: 0;
+    }
+    .blog-two-text-container {padding: 0 10px 30px}
+    .blog-post-details .blog-links {margin-top: 25px}
+}
