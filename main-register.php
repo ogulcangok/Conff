@@ -16,7 +16,7 @@ if (isset($_POST['user_register'])) {
     $user_address = $_POST['user_address'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-    $user_re_password = $_POST['user_re_password'];
+    $user_re_password = $_POST['user_re_password*'];
 
     if (empty($user_name)) {
         array_push($registerErrors, 'Name is required');
@@ -47,13 +47,14 @@ if (isset($_POST['user_register'])) {
     }
 
     if (count($registerErrors) == 0) {
+
         $encyrpted_password = md5($user_password);
-        $query = $db->prepare('INSERT INTO users SET user_name = ?, user_surname = ?, user_email = ?, user_title = ?, user_address = ?, user_company = ?, user_telephone = ?, user_password = ?');
+        $query = $db->prepare('INSERT INTO user SET user_name = ?, user_surname = ?, user_email = ?, user_title = ?, user_address = ?,user_firm  = ?, user_telephone = ?, user_password = ?');
 
         $add = $query->execute([
-            $user_name, $user_surname, $user_email, $user_title, $user_address, $user_company, $user_telephone, $encyrpted_password
+            $user_name, $user_surname, $user_email, $user_title, $user_address, $user_company,$user_telephone, $encyrpted_password
         ]);
-
+        print_r($add);
         if ($add) {
             header('Location:index.php');
 
@@ -80,7 +81,7 @@ if (isset($_REQUEST['login'])) {
     }
     if (count($loginErrors) == 0) {
         $encyrpted_login_password = md5($user_login_password);
-        $query = $db->prepare("SELECT * FROM users WHERE user_email = ? AND user_password = ?");
+        $query = $db->prepare("SELECT * FROM user WHERE user_email = ? AND user_password = ?");
         $query->execute([
             $user_login_email, $encyrpted_login_password
         ]);
