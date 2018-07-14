@@ -1,6 +1,9 @@
 <?php
+
+include 'main-register.php';
 require 'connect.php';
 require 'event-operations.php';
+
 
 $get_event_id = isset($_GET['event-id']) && is_numeric($_GET['event-id']) ? $_GET['event-id'] : header('Location:index.php');
 $get_event_day = isset($_GET['event-day']) && is_numeric($_GET['event-day']) ? $_GET['event-day'] : header('Location:index.php');
@@ -164,20 +167,12 @@ print_r($get_hall_number);
                                 </div>
                             </div>
                             <div class="col-md-4 hidden-sm hidden-xs">
-                                <div class="profilemenu">
+                                <div class="profilemenu" id="test">
                                     <nav>
                                         <ul id="nav" class="header-nav">
-                                            <li><a onclick="dropfunc()" class="dropbtn">
-                                                    <i class="fa fa-user"></i> PROFİLİM</a>
-                                                <div id="profileDropdown" class="dropdown-content">
-                                                    <a href="#">Link 1</a>
-                                                    <a href="#">Link 2</a>
-                                                    <a href="#">Link 3</a>
-                                                </div>
-                                            </li>
-                                            <li><a href="#"><i class="fa fa-mail-reply"></i> MESAJLAR</a></li>
-                                            <li><i class="fa fa-bell" style="padding-left: 50px;font-size: 25px;"></i>
-                                            </li>
+                                            <li><a href="login.php"><i class="fa fa-mail-reply"></i> GİRİŞ YAP </a></li>
+                                            <li><a href="login.php"><i class="fa fa-mail-reply"></i> KAYIT OL </a></li>
+                                            <li><i class="fa fa-bell" style="padding-left: 50px;font-size: 25px;"></i></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -822,4 +817,33 @@ print_r($get_hall_number);
    ============================================ -->
 <script src="js/main.js"></script>
 </body>
+
+
+<script>
+    var logged = "<?php echo $_SESSION['logged']; ?>";
+    var user_name = "<?php echo $_SESSION['user_name']; ?>";
+    if (logged) {
+        var element = document.getElementById("test");
+        element.innerHTML = "<nav>\n" +
+            "                                        <ul id=\"nav\" class=\"header-nav\">\n" +
+            "                                            <li><a onclick=\"dropfunc()\" class=\"dropbtn\"><i  class=\"fa fa-user\"></i> PROFİLİM</a>\n" +
+            "                                                <div id=\"profileDropdown\" class=\"dropdown-content\">\n" +
+            "                                                    <a href=\"#\">" + user_name +  "  </a>\n" +
+            "                                                    <a href=\"#\">Link 2</a>\n" +
+            "                                                    <a href=\"logout.php\">Logout</a>\n" +
+            "                                                </div></li>\n" +
+            "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i> MESAJLAR</a></li>\n" +
+            "                                            <li><i class=\"fa fa-bell\" style=\"padding-left: 50px;font-size: 25px;\"></i></li>\n" +
+            "                                        </ul>\n" +
+            "                                    </nav>"
+    } else {
+        var element = document.getElementById("test");
+        element.innerHTML = "<nav>\n" +
+            "                                        <ul id=\"nav\" class=\"header-nav\">\n" +
+            "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i> KAYIT OL</a></li>\n" +
+            "                                            <li><i class=\"fa fa-bell\" style=\"padding-left: 50px;font-size: 25px;\"></i></li>\n" +
+            "                                        </ul>\n" +
+            "                                    </nav>"
+    }
+</script>
 </html>
