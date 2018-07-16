@@ -50,7 +50,10 @@ foreach ($summit_list as $summit) {
     $query->execute([
         $summit['hall_id']
     ]);
-    array_push($hall_list, $query->fetch(PDO::FETCH_ASSOC));
+    $temp = $query->fetch(PDO::FETCH_ASSOC);
+    if (!isHallInList($hall_list, $temp['hall_id'])) {
+        array_push($hall_list, $temp);
+    }
 }
 array_unique($hall_list);
 
@@ -61,7 +64,16 @@ function getHallNameByHallId($hall_list, $hall_id) {
         }
     }
 }
-//print_r($hall_list);
+
+function isHallInList($hall_list, $hall_id): bool {
+    $contain = false;
+    foreach ($hall_list as $item) {
+        if ($item['hall_id'] == $hall_id) {
+            $contain = true;
+        }
+    }
+    return $contain;
+}
 
 $query = $db->prepare('SELECT hall_id FROM summit WHERE event_day_id = ? AND event_day =? ');
 $query->execute([
