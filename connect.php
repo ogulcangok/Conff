@@ -8,7 +8,7 @@
 
 global $db;
 try{
-    $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+    $db = new PDO('mysql:host=localhost;dbname=conffdb2', 'root', '');
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

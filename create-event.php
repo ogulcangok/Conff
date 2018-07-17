@@ -30,6 +30,27 @@ function getLocationIdByLocationName($locations, $location_name) {
     }
 }
 
+if(isset($_POST['save_location'])){
+    $location_name = $_POST['location_name'];
+    $location_capacity = $_POST['location_capacity'];
+    $location_address = $_POST['location_address'];
+
+    $query = $db->prepare('INSERT INTO location SET location_name = ? , location_address = ?, location_capacity = ?');
+
+    $add = $query ->execute([
+            $location_name,$location_address,$location_capacity
+    ]);
+
+
+    if ($add) {
+        $query = $db->prepare('SELECT * FROM location');
+        $query->execute();
+        $locations = $query->fetchAll(PDO::FETCH_ASSOC);
+        echo "success";
+    } else {
+        print_r($query->errorInfo());
+    }
+}
 
 if (isset($_POST['next'])) {
     $event_title = $_POST['event_title'];
@@ -74,11 +95,7 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
     } else {
         print_r($query->errorInfo());
     }
-
 }
-
-
-
 
 
 ?>
@@ -86,7 +103,7 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
 
 <form method="post" enctype="multipart/form-data">
     <br>
-    <input type="text" class="form-control" name="event_title" placeholder="Event Başlığı" required>
+    <input type="text" class="" name="event_title" placeholder="Event Başlığı" required>
     <br>
     <textarea name="event_description" placeholder="Event Açıklaması" required></textarea>
     <br>
@@ -96,11 +113,13 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
         <?php endforeach; ?>
     </select>
     <br>
-    <input type="text" class="form-control" name="event_hashtag" placeholder="Hashtag" required>
+    <input type="text" class="" name="event_hashtag" placeholder="Hashtag" required>
     <br>
-    <input type="text" class="form-control" name="event_capacity" placeholder="Kapasite" required>
+    <input type="text" class="" name="event_capacity" placeholder="Kapasite" required>
     <br>
     <input id="myInput" type="text" name="event_location" placeholder="Lokasyon">
+
+    <button type="button" id="save_button" data-toggle="modal" data-target="#myModal">Oluştur </button>
     <br>
     <input type="text" class="tarih" name="event_reg_start_date" placeholder="Başlangıç Tarihi" required>
     <br>
@@ -125,9 +144,53 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
 
 </form>
 
+
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <p><input type = "text" name="location_name" placeholder="Location name">  </p>
+                        <p><input type = "text" name="location_address" placeholder="Location address">  </p>
+                        <p><input type = "text" name="location_capacity" placeholder="Location capacity">  </p>
+                        <input type="hidden" name="save_location" value="1">
+                        <p><button type="submit" class="btn" id="save_button" >Save</button></p>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script >
+    $("#save_button").on("click", function(e) {
+        e.preventDefault();
+
+        // the rest of your code ...
+    });
+</script>
+
 <script>
     $('.tarih').datepicker({
         dateFormat: 'yy-mm-dd'
@@ -150,6 +213,11 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
         scrollbar: true
     });
 </script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
     function autocomplete(inp, arr) {
