@@ -54,8 +54,8 @@ function readEvent($direction, $firstEventOfPage, $limit, $category) {
 
 
         $startDate = explode(" ", $event['event_start_date']);
-        $startTime = explode(" ", $event['event_start_time']);
-        $endTime = explode(" ", $event['event_end_time']);
+        $startTime = $event['event_start_time'];
+        $endTime = $event['event_end_time'];
 
         $div = '<div class="btm-mrg-60 property-listing">
                   <div class="container-fluid">
@@ -71,7 +71,7 @@ function readEvent($direction, $firstEventOfPage, $limit, $category) {
                            <div class="row" style="border-top: 1px solid #bbb ;">
                               <div class="media">
                                  <a class="pull-left" href="#" target="_parent">
-                                 <img style="width: 200px; height: 225px" alt="image" class="img-responsive" src="./img/event-photos/' . $event['event_photo'] . '.jpeg"></a>
+                                 <img style="width: 200px; height: 225px" alt="image" class="img-responsive" src="./img/event-photos/' . $event['event_photo'] . '"></a>
                                  <div class="clearfix visible-sm"></div>
                                  <div class="media-body fnt-smaller">
                                     <a href="#" target="_parent"></a>
@@ -105,7 +105,7 @@ function readEvent($direction, $firstEventOfPage, $limit, $category) {
                               <div class="col-md-6 product-details-container">
                                  <span class="glyphicon glyphicon-time product-details-icon"
                                     aria-hidden="true"></span>
-                                 <span class="fnt-arial product-details-text">' . $startTime[1] . '-' . $endTime[1] . '</span>
+                                 <span class="fnt-arial product-details-text">' . $startTime . '-' . $endTime . '</span>
                               </div>
                            </div>
                         </div>
