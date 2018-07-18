@@ -23,11 +23,6 @@ function getLocationIdByLocationName($locations, $location_name) {
             return $location['location_id'];
         }
     }
-    try{
-        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
 }
 
 if(isset($_POST['save_location'])){
@@ -67,6 +62,7 @@ if (isset($_POST['next'])) {
     $end_time = $_POST['end_time'];
     $is_private = $_POST['is_private'];
 
+
     $target = "img/event-photos/";
 
     $temp = explode(".", $_FILES["image"]["name"]);
@@ -85,16 +81,32 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
         $event_start_date, $event_end_date, $event_event_reg_start_date, $event_event_reg_end_date, $start_time, $end_time
     ]);
 
-    $last_id = $db->lastInsertId();
+    $event_id = $db->lastInsertId();
 
-    $total_event_day = $start_time - $end_time;
-    print_r($total_event_day);
+    $earlier = new DateTime($event_start_date);
+    $later = new DateTime($event_end_date);
+
+    $total_event_day = $later->diff($earlier)->format("%a");
+    $total_event_day += 1;
 
     if ($add) {
-        header('Location: create-event-day.php?event-id='.$last_id.'&event-remaining-day='.$total_event_day);
+        for ($i = 0; $i < $total_event_day; $i++) {
+            $current_day = $i + 1;
+            $query = $db->prepare('INSERT INTO event_day SET event_id = ?, event_day_topic = ?, event_day = ?, event_day_hall_count = ?');
+            $query->execute([
+                $event_id, "Temp Topic", $current_day, 3
+            ]);
+            $event_day_id = $db->lastInsertId();
+        }
+
+
+        header('Location: create-event-day.php?event-id=' . $event_id . '&day-count='. $total_event_day .'&event-remaining-day='.$total_event_day);
     } else {
         print_r($query->errorInfo());
     }
+
+
+
 }
 
 
@@ -121,9 +133,9 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
 
     <button type="button" id="save_button" data-toggle="modal" data-target="#myModal">Oluştur </button>
     <br>
-    <input type="text" class="tarih" name="event_reg_start_date" placeholder="Başlangıç Tarihi" required>
+    <input type="text" class="tarih" name="event_start_date" placeholder="Başlangıç Tarihi" required>
     <br>
-    <input type="text" class="tarih" name="event_reg_end_date" placeholder="Bitiş Tarihi" required>
+    <input type="text" class="tarih" name="event_end_date" placeholder="Bitiş Tarihi" required>
     <br>
     <input type="text" class="tarih" name="event_reg_start_date" placeholder="Kayıt Başlangıç Tarihi" required>
     <br>

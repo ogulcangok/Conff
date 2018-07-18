@@ -9,7 +9,7 @@
 
 function countEvents() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffdb2', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -24,7 +24,7 @@ function countEvents() {
 
 function readEvent($direction, $firstEventOfPage, $limit, $category) {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffdb2', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

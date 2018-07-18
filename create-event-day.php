@@ -9,13 +9,22 @@ require 'connect.php';
 
 $event_id = $_GET['event-id'];
 $event_remaining_day = $_GET['event-remaining-day'];
+$event_day_count = $_GET['day-count'];
+$current_day = $event_remaining_day - $event_day_count + 1;
 
 $query = $db->prepare('SELECT * FROM event WHERE event_id = ?');
 $query->execute([
     $event_id
 ]);
 $event = $query->fetch(PDO::FETCH_ASSOC);
-print_r($event);
+
+
+$query = $db->prepare('SELECT * FROM event_day WHERE event_id = ?, event_day = ?');
+$query->execute([
+    $event_id, $current_day
+]);
+$event_day_id = $db->lastInsertId();
+
 
 $query = $db->prepare('SELECT * FROM location WHERE location_id = ?');
 $query->execute([
@@ -61,7 +70,7 @@ if (isset($_POST['save_hall'])) {
     $hall_capacity = $_POST['hall_capacity'];
 
 
-    $query = $db->prepare('INSERT INTO hall SET hall_name = ? , hall_capacity = ?,location_id=?');
+    $query = $db->prepare('INSERT INTO hall SET hall_name = ?, hall_capacity = ?, location_id = ?');
 
     $add = $query->execute([
         $hall_name, $hall_capacity, $locations['location_id']
@@ -78,13 +87,64 @@ if (isset($_POST['save_hall'])) {
     }
 }
 
+if (isset($_POST['add_summit'])) {
+    $summit_moderator_name = $_POST['summit_moderator'];
+    $summit_speaker_id = getSpeakerIdBySpeakerName($speaker_list, $_POST['speaker_name']);
+    $summit_topic = $_POST['summit_topic'];
+    $summit_info = $_POST['summit_info'];
+    $hall_id = getHallIdByHallName($hall_list, $_POST['summit_hall']);
+    $summit_start_time = $_POST['summit_start_time'];
+    $summit_end_time = $_POST['summit_end_time'];
+
+    $target = "img/moderator-photos/";
+
+    $temp = explode(".", $_FILES["image"]["name"]);
+    $summit_moderator_photo = $summit_moderator_name.".".$temp[1];
+
+    move_uploaded_file($_FILES['image']['tmp_name'], $target.$summit_moderator_photo);
+
+    $query = $db->prepare('INSERT INTO summit SET event_day_id = ?, event_day = ?, summit_moderator = ?, summit_topic = ?,
+summit_info = ?, summit_moderator_photo = ?, hall_id = ?, summit_start_time = ?, summit_end_time = ?');
+    $add = $query->execute([
+            $event_day_id, $current_day, $summit_moderator_name, $summit_topic, $summit_info, $summit_moderator_photo, $hall_id, $summit_start_time, $summit_end_time
+    ]);
+
+    $summit_id = $db->lastInsertId();
+
+    if ($add) {
+        $query = $db->prepare('INSERT INTO speaker_speaks_at_summit SET summit_id = ?, speaker_id = ?');
+        $query->execute([
+                $summit_id
+        ]);
+        header('Location: create-event-day.php?event-id='.$event_id.'&day-count='.$event_day_count.'&event-remaining-day='.$event_remaining_day);
+    } else {
+        print_r($query->errorInfo());
+    }
+}
+
+function getHallIdByHallName($hall_list, $hall_name) {
+    foreach ($hall_list as $hall) {
+        echo $hall['hall_name'];
+        echo $hall_name;
+        if ($hall['hall_name'] == $hall_name) {
+            return $hall['hall_id'];
+        }
+    }
+}
+
+function getSpeakerIdBySpeakerName($speaker_list, $speaker_name) {
+    foreach ($speaker_list as $speaker) {
+        if ($speaker['speaker_name'] == $speaker_name) {
+            return $speaker['speaker_id'];
+        }
+    }
+}
+
 
 ?>
 
-
 <!--Make sure the form has the autocomplete function switched off:-->
 <form method="post" autocomplete="off">
-
     <br>
     <input type="text" name="summit_moderator" placeholder="Moderator Name: " required>
     <br>
@@ -97,27 +157,34 @@ if (isset($_POST['save_hall'])) {
     <br>
     <input type="text" name="summit_info" placeholder="Summit Information: " required>
     <br>
-    <input type="text" class="timepicker" name="start_time" placeholder="Başlangıç Saati" required>
+    <input type="text" class="timepicker" name="summit_start_time" placeholder="Başlangıç Saati" required>
     <br>
-    <input type="text" class="timepicker" name="end_time" placeholder="Bitiş Saati" required>
+    <input type="text" class="timepicker" name="summit_end_time" placeholder="Bitiş Saati" required>
     <br>
-
     <input id="hall_input" type="text" name="summit_hall" placeholder="Halls">
     <button type="button" id="save_button" data-toggle="modal" data-target="#hall_modal">Oluştur</button>
     <br>
     <br>
-    <input type="submit" name="Gönder">
+    <input type="submit" name="add_summit">
 </form>
+
+<button>
+    <?php if ($event_remaining_day-- == 0): ?>
+        <a href="event-detail.php?event-id=<?php echo $event_id ?>"></a>
+    <?php else: ?>
+        <a href="create-event-day.php?<?php echo 'event-id='.$event_id.'&day-count='.$event_day_count.'&event-remaining-day='.$event_remaining_day--?>"></a>
+    <?php endif; ?>
+</button>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div class="container">
 
+<!---------------- HALL EKLENEN MODAL    ---------------->
+<div class="container">
     <div class="modal fade" id="hall_modal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -138,18 +205,14 @@ if (isset($_POST['save_hall'])) {
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
 
-
+<!----------------- SPEAKER EKLENEN MODAL --------------->
 <div class="container">
-
     <div class="modal fade" id="speaker_modal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -171,13 +234,12 @@ if (isset($_POST['save_hall'])) {
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
 
 
+<!----------------- TIMEPICKER CODE --------------->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script>
@@ -194,6 +256,7 @@ if (isset($_POST['save_hall'])) {
     });
 </script>
 
+<!----------------- AUTO COMPLETE TEXT --------------->
 <script>
     function autocomplete(inp, arr) {
         /*the autocomplete function takes two arguments,

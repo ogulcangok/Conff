@@ -377,14 +377,14 @@ print_r($get_hall_number);
                                     <?php foreach ($summit_list as $summit):?>
                                         <?php
                                         if($summit['hall_id'] == $get_hall_number):
-                                        $startTime = explode(" ", $summit['summit_start_time']);
-                                        $endTime = explode(" ", $summit['summit_end_time']);
+                                            $startTime = $summit['summit_start_time'];
+                                            $endTime = $summit['summit_end_time'];
 
-                                        $query = $db->prepare('SELECT * FROM speaker WHERE summit_id = ?');
-                                        $query->execute([
-                                            $summit['summit_id']
-                                        ]);
-                                        $speakers = $query->fetchAll(PDO::FETCH_ASSOC);
+                                            $query = $db->prepare('SELECT * FROM speaker_speaks_at_summit WHERE summit_id = ?');
+                                            $query->execute([
+                                                    $summit['summit_id']
+                                            ]);
+                                            $speakers_ids = $query->fetchAll(PDO::FETCH_ASSOC);
                                         ?>
                                         <div class="row">
                                             <div class="col-md-3 col-lg-3 " align="center">
@@ -403,7 +403,7 @@ print_r($get_hall_number);
                                                                 <div class="row">
                                                                     <div class="col-md-12 product-details-container" style="height: 55px;">
                                                                         <span class="glyphicon glyphicon-time product-details-icon" aria-hidden="true" style="font-size: 35px;"></span>
-                                                                        <span class="fnt-arial product-details-text" style="font-size: 25px;"><?php echo $startTime[1] . '-' . $endTime[1] ?></span>
+                                                                        <span class="fnt-arial product-details-text" style="font-size: 25px;"><?php echo $startTime . '-' . $endTime ?></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row" style="border-top: 1px solid #bbb ;">
@@ -419,9 +419,13 @@ print_r($get_hall_number);
                                                                 <div class="row"
                                                                      style="border-top: 1px solid #bbb; padding: 16px;">
                                                                     <b>Speakers: </b>
-                                                                    <?php for ($i = 0; $i < count($speakers); $i++) {
-                                                                        $speaker = $speakers[$i];
-                                                                        if ($i + 1 == count($speakers))
+                                                                    <?php for ($i = 0; $i < count($speakers_ids); $i++) {
+                                                                        $query = $db->prepare('SELECT * FROM speaker WHERE speaker_id = ?');
+                                                                        $query->execute([
+                                                                            $speakers_ids[$i]['speaker_id']
+                                                                        ]);
+                                                                        $speaker = $query->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($i + 1 == count($speakers_ids))
                                                                             echo $speaker['speaker_name'];
                                                                         else
                                                                             echo $speaker['speaker_name'] . ',';
