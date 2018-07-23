@@ -76,7 +76,7 @@
                         <div class="row">
                            <div class="col-md-2 col-sm-12">
                               <div class="logo">
-                                 <a href="index-2.html"><img src="img/logo/conff-color.png" alt="ADVENTURES"></a>
+                                 <a href="index.php"><img src="img/logo/conff-color.png" alt="ADVENTURES"></a>
                               </div>
                            </div>
                            <div class="col-md-6 hidden-sm hidden-xs">

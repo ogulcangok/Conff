@@ -487,7 +487,7 @@
             "                                            <li><a onclick=\"dropfunc()\" class=\"dropbtn\"><i  class=\"fa fa-user\"></i> PROFİLİM</a>\n" +
             "                                                <div id=\"profileDropdown\" class=\"dropdown-content\">\n" +
             "                                                    <a href=\"#\">" + user_name +  "  </a>\n" +
-            "                                                    <a href=\"#\">Link 2</a>\n" +
+            "                                                    <a href=\"#\"></a>\n" +
             "                                                    <a href=\"logout.php\">Logout</a>\n" +
             "                                                </div></li>\n" +
             "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i> MESAJLAR</a></li>\n" +

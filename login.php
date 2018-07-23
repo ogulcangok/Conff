@@ -118,11 +118,9 @@ include 'errors.php';
                         <br>
                         <input type="text" class="form-control" name="user_surname" placeholder="Surname" required>
                         <br>
-                        <input type="text" class="form-control" name="user_company" placeholder="Company" required>
-                        <br>
+                        <input type="text" class="tarih"  name="user_date_of_birth" placeholder="Date Of Birth" required>
+                        <br><br>
                         <input type="text" class="form-control" name="user_telephone" placeholder="Telephone" required>
-                        <br>
-                        <input type="text" class="form-control" name="user_address" placeholder="Address" required>
                         <br>
                         <input type="email" class="form-control" name="user_email" placeholder="Email" required>
                         <br>
@@ -152,24 +150,27 @@ include 'errors.php';
                     </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="organization">
-                    <form>
+                    <form method="post">
                         <br>
-                        <input type="email" class="form-control" name="firm_name"
+                        <input type="text" class="form-control" name="firm_name"
                                placeholder="Kurum Adı">
                         <br>
-                        <input type="email" class="form-control" name="firm_name2"
+                        <input type="text" class="form-control" name="firm_user_name"
                                placeholder="Name">
                         <br>
-                        <input type="email" class="form-control" name="firm_surname"
+                        <input type="text" class="form-control" name="firm_user_surname"
                                placeholder="Surname">
+                        <br>
+                        <input type="text" class="form-control" name="firm_tel_no"
+                               placeholder="Telephone Number">
                         <br>
                         <input type="email" class="form-control" name="firm_email"
                                placeholder="Email">
                         <br>
-                        <input type="email" class="form-control" name="firm_password"
+                        <input type="password" class="form-control" name="firm_password"
                                placeholder="Password">
                         <br>
-                        <input type="email" class="form-control" name="firm_re_password"
+                        <input type="password" class="form-control" name="firm_re_password"
                                placeholder="Re-Enter Password">
                         <br>
                         <div class="row">
@@ -180,6 +181,7 @@ include 'errors.php';
                                 </label>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12" style="display: flex">
+                                <input type="hidden" name="company_register" value="1">
                                 <button type="submit" class="continue-button  btn-lg btn-block">Devam Et</button>
                             </div>
                         </div>
@@ -397,5 +399,20 @@ include 'errors.php';
 
 
 </script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $('.tarih').datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+</script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 </body>
 </html>
