@@ -10,7 +10,8 @@ require 'connect.php';
 $event_id = $_GET['event-id'];
 $event_remaining_day = $_GET['event-remaining-day'];
 $event_day_count = $_GET['day-count'];
-$current_day = $event_remaining_day - $event_day_count + 1;
+$current_day = $event_day_count - $event_remaining_day + 1;
+$next_day = $event_remaining_day - 1;
 
 $query = $db->prepare('SELECT * FROM event WHERE event_id = ?');
 $query->execute([
@@ -19,11 +20,12 @@ $query->execute([
 $event = $query->fetch(PDO::FETCH_ASSOC);
 
 
-$query = $db->prepare('SELECT * FROM event_day WHERE event_id = ?, event_day = ?');
+$query = $db->prepare('SELECT * FROM event_day WHERE event_id = ? AND event_day = ?');
 $query->execute([
     $event_id, $current_day
 ]);
-$event_day_id = $db->lastInsertId();
+$event_day = $query->fetch(PDO::FETCH_ASSOC);
+print_r($event_day);
 
 
 $query = $db->prepare('SELECT * FROM location WHERE location_id = ?');
@@ -106,7 +108,7 @@ if (isset($_POST['add_summit'])) {
     $query = $db->prepare('INSERT INTO summit SET event_day_id = ?, event_day = ?, summit_moderator = ?, summit_topic = ?,
 summit_info = ?, summit_moderator_photo = ?, hall_id = ?, summit_start_time = ?, summit_end_time = ?');
     $add = $query->execute([
-            $event_day_id, $current_day, $summit_moderator_name, $summit_topic, $summit_info, $summit_moderator_photo, $hall_id, $summit_start_time, $summit_end_time
+            $event_day['event_day_id'], $current_day, $summit_moderator_name, $summit_topic, $summit_info, $summit_moderator_photo, $hall_id, $summit_start_time, $summit_end_time
     ]);
 
     $summit_id = $db->lastInsertId();
@@ -114,7 +116,7 @@ summit_info = ?, summit_moderator_photo = ?, hall_id = ?, summit_start_time = ?,
     if ($add) {
         $query = $db->prepare('INSERT INTO speaker_speaks_at_summit SET summit_id = ?, speaker_id = ?');
         $query->execute([
-                $summit_id
+                $summit_id, $summit_speaker_id
         ]);
         header('Location: create-event-day.php?event-id='.$event_id.'&day-count='.$event_day_count.'&event-remaining-day='.$event_remaining_day);
     } else {
@@ -124,8 +126,6 @@ summit_info = ?, summit_moderator_photo = ?, hall_id = ?, summit_start_time = ?,
 
 function getHallIdByHallName($hall_list, $hall_name) {
     foreach ($hall_list as $hall) {
-        echo $hall['hall_name'];
-        echo $hall_name;
         if ($hall['hall_name'] == $hall_name) {
             return $hall['hall_id'];
         }
@@ -168,13 +168,11 @@ function getSpeakerIdBySpeakerName($speaker_list, $speaker_name) {
     <input type="submit" name="add_summit">
 </form>
 
-<button>
-    <?php if ($event_remaining_day-- == 0): ?>
-        <a href="event-detail.php?event-id=<?php echo $event_id ?>"></a>
+    <?php if ($event_remaining_day - 1 == 0): ?>
+        <a href="event-detail.php?event-id=<?php echo $event_id ?>">Bitir</a>
     <?php else: ?>
-        <a href="create-event-day.php?<?php echo 'event-id='.$event_id.'&day-count='.$event_day_count.'&event-remaining-day='.$event_remaining_day--?>"></a>
+        <a href="create-event-day.php?<?php echo 'event-id='.$event_id.'&day-count='.$event_day_count.'&event-remaining-day='.$next_day?>">Sonraki Günü Doldur</a>
     <?php endif; ?>
-</button>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -3,6 +3,7 @@ require 'main-register.php';
 include 'errors.php';
 ?>
 
+<?php if ($_SESSION['logged'] == false): ?>
 <!doctype html>
 <html class="no-js" lang="tr">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
@@ -113,6 +114,13 @@ include 'errors.php';
                 <div role="tabpanel" class="tab-pane active" id="person">
                     <form method="post">
 
+                        <select name="user_title">
+                            <option value="title1">Title1</option>
+                            <option value="title2">Title2</option>
+                            <option value="title3">Title3</option>
+                            <option value="title4">Title4</option>
+                        </select>
+                        <br>
                         <br>
                         <input type="text" class="form-control" name="user_name" placeholder="Name" required>
                         <br>
@@ -127,13 +135,6 @@ include 'errors.php';
                         <input type="password" class="form-control" name="user_password" placeholder="Password" required>
                         <br>
                         <input type="password" class="form-control" name="user_re_password*" placeholder="Re-Enter Password" required>
-                        <br>
-                        <select name="user_title">
-                            <option value="title1">Title1</option>
-                            <option value="title2">Title2</option>
-                            <option value="title3">Title3</option>
-                            <option value="title4">Title4</option>
-                        </select>
                         <br>
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-xs-12" style="display: flex">
@@ -152,26 +153,19 @@ include 'errors.php';
                 <div role="tabpanel" class="tab-pane" id="organization">
                     <form method="post">
                         <br>
-                        <input type="text" class="form-control" name="firm_name"
-                               placeholder="Kurum Adı">
+                        <input type="text" class="form-control" name="firm_name" placeholder="Kurum Adı">
                         <br>
-                        <input type="text" class="form-control" name="firm_user_name"
-                               placeholder="Name">
+                        <input type="text" class="form-control" name="firm_user_name" placeholder="Name">
                         <br>
-                        <input type="text" class="form-control" name="firm_user_surname"
-                               placeholder="Surname">
+                        <input type="text" class="form-control" name="firm_user_surname" placeholder="Surname">
                         <br>
-                        <input type="text" class="form-control" name="firm_tel_no"
-                               placeholder="Telephone Number">
+                        <input type="text" class="form-control" name="firm_tel_no" placeholder="Telephone Number">
                         <br>
-                        <input type="email" class="form-control" name="firm_email"
-                               placeholder="Email">
+                        <input type="email" class="form-control" name="firm_email" placeholder="Email">
                         <br>
-                        <input type="password" class="form-control" name="firm_password"
-                               placeholder="Password">
+                        <input type="password" class="form-control" name="firm_password" placeholder="Password">
                         <br>
-                        <input type="password" class="form-control" name="firm_re_password"
-                               placeholder="Re-Enter Password">
+                        <input type="password" class="form-control" name="firm_re_password" placeholder="Re-Enter Password">
                         <br>
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-xs-12" style="display: flex">
@@ -416,3 +410,8 @@ include 'errors.php';
 
 </body>
 </html>
+<?php else: ?>
+
+<?php header('Location: index.php') ?>
+
+<?php endif; ?>

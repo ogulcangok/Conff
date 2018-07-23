@@ -60,6 +60,7 @@ if (isset($_POST['user_register'])) {
             $logged = true;
             $_SESSION['user_name'] = $user_name;
             $_SESSION['logged'] = $logged;
+            $_SESSION['user_role'] = 4;
 
             $query = $db->prepare('INSERT INTO user SET user_id = ?');
 
@@ -91,13 +92,15 @@ if (isset($_REQUEST['login'])) {
             $user_login_email, $encyrpted_login_password
         ]);
 
-        $user = $query->fetch(PDO::FETCH_ASSOC);
-        if ($user) {
+        $member = $query->fetch(PDO::FETCH_ASSOC);
+        if ($member) {
             header('Location:index.php');
 
             $logged = true;
-            $_SESSION['user_name'] = $user['user_name'];
+            $_SESSION['user_name'] = $member['member_name'];
             $_SESSION['logged'] = $logged;
+            $_SESSION['user_role'] = $member['member_role_id'];
+            print_r($member);
         } else {
             array_push($loginErrors, 'Wrong username/password combination');
         }
@@ -136,6 +139,7 @@ if(isset($_REQUEST['company_register'])){
             $logged = true;
             $_SESSION['user_name'] = $firm_user_name;
             $_SESSION['logged'] = $logged;
+            $_SESSION['user_role'] = 2;
 
             $query = $db->prepare('INSERT INTO firm SET firm_id = ?, firm_title = ?');
 

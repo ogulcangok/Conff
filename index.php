@@ -480,14 +480,15 @@
 <script>
     var logged = "<?php echo $_SESSION['logged']; ?>";
     var user_name = "<?php echo $_SESSION['user_name']; ?>";
+    var user_role = "<?php echo $_SESSION['user_role']; ?>";
     if (logged) {
         var element = document.getElementById("test");
         element.innerHTML = "<nav>\n" +
             "                                        <ul id=\"nav\" class=\"header-nav\">\n" +
             "                                            <li><a onclick=\"dropfunc()\" class=\"dropbtn\"><i  class=\"fa fa-user\"></i> PROFİLİM</a>\n" +
             "                                                <div id=\"profileDropdown\" class=\"dropdown-content\">\n" +
-            "                                                    <a href=\"#\">" + user_name +  "  </a>\n" +
-            "                                                    <a href=\"#\"></a>\n" +
+            "                                                    <a href=\"#\">" + user_name +  "</a>\n" +
+            "                                                    <a href=\"create-event.php\">Event Oluştur</a>\n" +
             "                                                    <a href=\"logout.php\">Logout</a>\n" +
             "                                                </div></li>\n" +
             "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i> MESAJLAR</a></li>\n" +
@@ -498,7 +499,7 @@
         var element = document.getElementById("test");
         element.innerHTML = "<nav>\n" +
             "                                        <ul id=\"nav\" class=\"header-nav\">\n" +
-            "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i> KAYIT OL</a></li>\n" +
+            "                                            <li><a href=\"login.php\"><i class=\"fa fa-mail-reply\"></i>Giriş/Kayıt</a></li>\n" +
             "                                            <li><i class=\"fa fa-bell\" style=\"padding-left: 50px;font-size: 25px;\"></i></li>\n" +
             "                                        </ul>\n" +
             "                                    </nav>"
