@@ -7,36 +7,36 @@
  */
 require 'connect.php';
 
-$query = $db->prepare('SELECT * FROM member WHERE member_email = ?');
-$query->execute([
-        $_GET['member_email']
-]);
-$member = $query->fetch(PDO::FETCH_ASSOC);
-
-session_start();
-$_SESSION["userId"] = $member['member_id'];
-
 if (isset($_POST['change_password'])) {
-    if (md5($_POST["new_password"]) != $member["member_password"]) {
-        $encrypted_password = md5($_POST['new_password']);
-        print_r($encrypted_password);
-        $query = $db->prepare('UPDATE member SET member_password = "' . $encrypted_password . '" WHERE member_id = ' . $_SESSION['userId']);
-        $update = $query->execute();
-        if ($update) {
-            $message = "Password Changed";
-        } else {
-            $message = $query->errorInfo();
+    if (isset($_GET['a']) && $_GET['a'] == 'recover' && $_GET['email'] != "") {
+        $key = $_GET['email'];
+        $member_id = urldecode(base64_decode($_GET['u']));
+        $curDate = date("Y-m-d H:i:s");
+
+        $query = $db->prepare('SELECT * FROM recovery_emails WHERE recovery_key = ? AND member_id = ? AND exp_date >= ?');
+        $query->execute([
+            $key, $member_id, $curDate
+        ]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            $password = md5(trim($_POST['new_password']));
+
+            $query = $db->prepare('UPDATE member SET member_password = ? WHERE member_id = ?');
+            $query->execute([
+                $password, $member_id
+            ]);
+
+            $query = $db->prepare('DELETE FROM recovery_mails WHERE recovery_key = ?');
+            $query->execute([$key]);
         }
-    } else
-        $message = "New password can't be the same with the old one";
+    }
 }
 ?>
 
-
-
-
 <html>
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/conff.ico" />
     <title>Recover Password</title>
     Recover Password
 </head>
@@ -48,8 +48,6 @@ if (isset($_POST['change_password'])) {
     <br>
     <input type="hidden" name="change_password">
     <button type="submit">Değiştir</button>
-
-
 </form>
 </body>
 </html>

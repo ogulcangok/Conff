@@ -143,6 +143,8 @@ function getSpeakerIdBySpeakerName($speaker_list, $speaker_name) {
 
 ?>
 
+<link rel="shortcut icon" type="image/x-icon" href="img/logo/conff.ico" />
+
 <!--Make sure the form has the autocomplete function switched off:-->
 <form method="post" autocomplete="off">
     <br>

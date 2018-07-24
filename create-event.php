@@ -115,7 +115,7 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
 
 
 <?php if ($_SESSION['user_role'] == 2): ?>
-
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/conff.ico" />
     <form method="post" enctype="multipart/form-data">
         <br>
         <input type="text" class="" name="event_title" placeholder="Event Başlığı" required>

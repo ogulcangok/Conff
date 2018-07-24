@@ -6,7 +6,7 @@
  * Time: 13:45
  */
 
-
+define("PW_SALT" ,'(+3%_');
 define("PROJECT_HOME","http://localhost:63342/Conff/");
 
 define("PORT", 465); // port number
