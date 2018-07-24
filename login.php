@@ -202,6 +202,9 @@ include 'errors.php';
                 <button type="submit" class="red-button btn-lg btn-block"
                         style="font-size: 30px; display: inline-block">Giriş
                 </button>
+                <br>
+                <br>
+                <a href="forgot-password.php">Forgot password?</a>
             </form>
         </div>
 

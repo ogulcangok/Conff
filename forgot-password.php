@@ -6,68 +6,39 @@
  * Time: 16:17
  */
 
-
-use PHPMailer\PHPMailer\PHPMailer;
+require 'connect.php';
+require 'class.phpmailer.php';
+require 'mail-configuration.php';
 
 if(!empty($_POST["forgot-password"])){
-    $conn = mysqli_connect("localhost", "root", "", "blog_samples");
-
     $condition = "";
     if(!empty($_POST["user-login-name"]))
-        $condition = " member_name = '" . $_POST["user-login-name"] . "'";
+        $condition = " member_name = '" . $_POST['user-login-name'] . "'";
     if(!empty($_POST["user-email"])) {
         if(!empty($condition)) {
-            $condition = " and ";
+            $condition = " AND ";
         }
-        $condition = " member_email = '" . $_POST["user-email"] . "'";
+        $condition = " member_email = '" . $_POST['user-email'] . "'";
     }
 
     if(!empty($condition)) {
-        $condition = " where " . $condition;
+        $condition = " WHERE " . $condition;
     }
 
-    $sql = "Select * from members " . $condition;
-    $result = mysqli_query($conn,$sql);
-    $user = mysqli_fetch_array($result);
-
-    if(!empty($user)) {
-        if(!class_exists('PHPMailer')) {
-            require('PHPMailer.php');
-            require('SMTP.php');
-        }
-
-        require_once('mail_configuration.php');
-
-        $mail = new PHPMailer();
+    $sql = "SELECT * FROM member" . $condition;
+    $query = $db->prepare($sql);
+    $query->execute();
+    $member = $query->fetch(PDO::FETCH_ASSOC);
+    print_r($member);
 
 
-        $emailBody = "<div>" . $user['member_name'] . ",<br><br><p>Click this link to recover your password<br><a href='" . PROJECT_HOME . "php-forgot-password-recover-code/reset_password.php?name=" . $user["member_name"] . "'>" . PROJECT_HOME . "php-forgot-password-recover-code/reset_password.php?name=" . $user["member_name"] . "</a><br><br></p>Regards,<br> Admin.</div>";
 
-        $mail->IsSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->SMTPAuth = TRUE;
-        $mail->SMTPSecure = "tls";
-        $mail->Port     = PORT;
-        $mail->Username = MAIL_USERNAME;
-        $mail->Password = MAIL_PASSWORD;
-        $mail->Host     = MAIL_HOST;
-        $mail->Mailer   = MAILER;
+    if(!empty($member)) {
+        $emailBody = "<div>" . $member["member_name"] . ",<br><br><p>Click this link to recover your password<br><a href='" . PROJECT_HOME . "recover-password.php?member_email=" . $member["member_email"] . "'>" . PROJECT_HOME . "recover-password.php?email=" . $member["member_email"] . "</a><br><br></p>Regards,<br> Admin.</div>";
+        sendMail($_POST['user-email'], $member['member_name'], "Şifre Kurtarma", $emailBody);
 
-        $mail->SetFrom(SERDER_EMAIL, SENDER_NAME);
-        $mail->AddReplyTo(SERDER_EMAIL, SENDER_NAME);
-        $mail->ReturnPath=SERDER_EMAIL;
-        $mail->AddAddress($user["member_email"]);
-        $mail->Subject = "Forgot Password Recovery";
-        $mail->MsgHTML($emailBody);
-        $mail->IsHTML(true);
-
-        if(!$mail->Send()) {
-            $error_message = 'Problem in Sending Password Recovery Email';
-        } else {
-            $success_message = 'Please check your email to reset password!';
-        }
     } else {
-        $error_message = 'No User Found';
+        echo "No user found";
     }
 }
 

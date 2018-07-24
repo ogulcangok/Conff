@@ -339,7 +339,7 @@ event_end_date = ?, event_reg_start_date = ?,event_reg_end_date = ?, event_start
         autocomplete(document.getElementById("myInput"), array);
     </script>
 
-<?php elseif($_SESSION['user_role'] == 4): ?>
+<?php else: ?>
 
 <?php header('Location: index.php'); ?>
 
