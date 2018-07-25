@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81e20f28-06b0-4d34-a663-96a3fc47c4e6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-event-day.php" beforeDir="false" afterPath="$PROJECT_DIR$/create-event-day.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/create-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/event-detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/event-photos/bilgeadam.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mail-configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/mail-configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odeme.php" beforeDir="false" afterPath="$PROJECT_DIR$/odeme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/personal-detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recover-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/recover-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms-activation.php" beforeDir="false" afterPath="$PROJECT_DIR$/sms-activation.php" afterDir="false" />
-    </list>
+    <list default="true" id="81e20f28-06b0-4d34-a663-96a3fc47c4e6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,15 +51,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sms-activation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sms-activation.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,8 +63,17 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="77">
+              <caret line="8" column="67" lean-forward="true" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-event-day.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/create-event-day.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="146" selection-start-line="146" selection-end-line="146" />
             </state>
           </provider>
         </entry>
@@ -256,7 +241,7 @@
       <workItem from="1531997017229" duration="1603000" />
       <workItem from="1532330159327" duration="854000" />
       <workItem from="1532347637587" duration="11007000" />
-      <workItem from="1532426892777" duration="9889000" />
+      <workItem from="1532426892777" duration="10149000" />
     </task>
     <task id="LOCAL-00001" summary="event-detail is almost done">
       <created>1531402677557</created>
@@ -321,25 +306,31 @@
       <option name="project" value="LOCAL" />
       <updated>1532435998653</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Şifremi unuttum özelliği daha güvenli hale getirildi">
+      <created>1532454178422</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1532454178422</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70747000" />
+    <option name="totallyTimeSpent" value="71007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32923076" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32923076" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.42735043" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32960597" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15140416" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15140416" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923076" />
@@ -393,7 +384,8 @@
     <MESSAGE value="Database yapısı değişti ve değişiklikler diğer sayfalar için düzenlendi" />
     <MESSAGE value="User role atamaları yapıldı" />
     <MESSAGE value="Şifremi unuttum özelliği eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Şifremi unuttum özelliği eklendi" />
+    <MESSAGE value="Şifremi unuttum özelliği daha güvenli hale getirildi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Şifremi unuttum özelliği daha güvenli hale getirildi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,11 +537,6 @@
     <entry file="file://$PROJECT_DIR$/errors.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-591" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/temp/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -606,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create-event-day.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/event-detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
@@ -639,13 +619,6 @@
             <element signature="n#style#0;n#i#0;n#li#2;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -677,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recover-password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sms-activation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -695,6 +661,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recover-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="8" column="67" lean-forward="true" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create-event-day.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
         </state>
       </provider>
     </entry>
