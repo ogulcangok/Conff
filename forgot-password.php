@@ -33,9 +33,9 @@ if(!empty($_POST["forgot-password"])){
     if(!empty($member)) {
         $expFormat = mktime(date("H"), date("i"), date("s"), date("m")  , date("d")+3, date("Y"));
         $expDate = date("Y-m-d H:i:s",$expFormat);
-        $key = md5($member['member_name'] . '_' . $member['member_email'] . rand(0,10000) .$expDate . PW_SALT);
+        $key = md5($member['member_name'] . '_' . $member['member_email'] . rand(0,10000) . $expDate . PW_SALT);
 
-        $query = $db->prepare('INSERT INTO recovery_emails SET member_id = ?, recovery_key = ?, exp_date = ?');
+        $query = $db->prepare('INSERT INTO recovery_emails SET member_id = ?, recovery_key = ?, exp_date = ?, key_status = 0');
         $insertRecoveryKey = $query->execute([
             $member['member_id'], $key, $expDate
         ]);
@@ -64,18 +64,8 @@ if(!empty($_POST["forgot-password"])){
     <title>Forgot Password</title>
 </head>
 <body>
-<form name="frmForgot" id="frmForgot" method="post" onSubmit="return validate_forgot();">
+<form method="post">
     <h1>Forgot Password?</h1>
-    <?php if(!empty($success_message)) { ?>
-        <div class="success_message"><?php echo $success_message; ?></div>
-    <?php } ?>
-
-    <div id="validation-message">
-        <?php if(!empty($error_message)) { ?>
-            <?php echo $error_message; ?>
-        <?php } ?>
-    </div>
-
     <div class="field-group">
         <div><label for="username">Username</label></div>
         <div><input type="text" name="user-login-name" id="user-login-name" class="input-field"> Or</div>

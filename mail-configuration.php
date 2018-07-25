@@ -35,7 +35,7 @@ function sendMail($to_mail, $to_name, $subject, $body) {
 
     $mail->MsgHTML($body);
     if($mail->Send()) {
-        echo "e-posta başarılı ile gönderildi";
+        echo "e-posta başarı ile gönderildi";
     } else {
         // bir sorun var, sorunu ekrana bastıralım
         echo $mail->ErrorInfo;
