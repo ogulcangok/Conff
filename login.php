@@ -158,7 +158,7 @@ include 'errors.php';
                         <br>
                         <input type="text" class="form-control" name="firm_user_surname" placeholder="Surname">
                         <br>
-                        <input type="text" class="form-control" name="firm_tel_no" placeholder="Telephone Number">
+                        <input type="tel" class="form-control" name="firm_tel_no" placeholder="Telephone Number">
                         <br>
                         <input type="email" class="form-control" name="firm_email" placeholder="Email">
                         <br>

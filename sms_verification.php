@@ -77,7 +77,8 @@ include 'main-register.php';
             $.post("verify.php", {code: code, csrf: csrf}, function (result) {
                 $(".message").append("<p>Server response : " + result + "</p>");
             });
-            window.location.replace("http://localhost:63342/Conff/index.php")
+
+            window.location.replace("http://test.conff.co/index.php")
         }
         else if (response.status === "NOT_AUTHENTICATED") {
             // handle authentication failure

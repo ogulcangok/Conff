@@ -7,7 +7,7 @@
  */
 
 define("PW_SALT" ,'(+3%_');
-define("PROJECT_HOME","http://localhost:63342/Conff/");
+define("PROJECT_HOME","test.conff.co/");
 
 define("PORT", 465); // port number
 define("MAIL_USERNAME", "test@test.conff.co"); // smtp usernmae

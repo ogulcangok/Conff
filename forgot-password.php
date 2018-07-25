@@ -41,7 +41,7 @@ if(!empty($_POST["forgot-password"])){
         ]);
 
         if ($insertRecoveryKey) {
-            $passwordLink = "<a href=\"http://localhost:63342/Conff/recover-password.php?a=recover&email=" . $key . "&u=" . urlencode(base64_encode($member['member_id'])) . "\">http://localhost:63342/Conff/recover-password.php?a=recover&email=" . $key . "&u=" . urlencode(base64_encode($member['member_id'])) . "</a>";
+            $passwordLink = "<a href=\"http://test.conff.co/recover-password.php?a=recover&email=" . $key . "&u=" . urlencode(base64_encode($member['member_id'])) . "\">http://test.conff.co/recover-password.php?a=recover&email=" . $key . "&u=" . urlencode(base64_encode($member['member_id'])) . "</a>";
 
             $message = "Dear " . $member['member_name'] . "<br>";
             $message .= "Please visit the following link to reset your password:<br>";
