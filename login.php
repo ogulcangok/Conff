@@ -1,5 +1,4 @@
 <?php
-require 'main-register.php';
 include 'errors.php';
 ?>
 
@@ -112,7 +111,7 @@ include 'errors.php';
             </div>
             <div class="tab-content" style="padding: 20px;">
                 <div role="tabpanel" class="tab-pane active" id="person">
-                    <form method="post">
+                    <form method="post" action="main-register.php">
 
                         <select name="user_title">
                             <option value="title1">Title1</option>
@@ -415,6 +414,6 @@ include 'errors.php';
 </html>
 <?php else: ?>
 
-<?php header('Location: index.php') ?>
+<?php //header('Location: index.php') ?>
 
 <?php endif; ?>

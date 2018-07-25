@@ -74,7 +74,6 @@ if (isset($_POST['user_register'])) {
     }
 }
 
-
 if (isset($_REQUEST['login'])) {
     $user_login_email = $_POST['login_username'];
     $user_login_password = $_POST['login_password'];
