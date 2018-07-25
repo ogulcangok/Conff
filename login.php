@@ -111,7 +111,7 @@ include 'errors.php';
             </div>
             <div class="tab-content" style="padding: 20px;">
                 <div role="tabpanel" class="tab-pane active" id="person">
-                    <form method="post" action="main-register.php">
+                    <form method="post" action="sms_verification.php">
 
                         <select name="user_title">
                             <option value="title1">Title1</option>

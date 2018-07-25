@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <html>
 <head>
     <script src="jquery-3.0.0.min.js"></script>
@@ -72,7 +77,7 @@
             $.post("verify.php", {code: code, csrf: csrf}, function (result) {
                 $(".message").append("<p>Server response : " + result + "</p>");
             });
-            window.location.replace("http://localhost:63342/Conff/main-register.php")
+            window.location.replace("http://localhost:63342/Conff/index.php")
         }
         else if (response.status === "NOT_AUTHENTICATED") {
             // handle authentication failure
@@ -108,6 +113,5 @@
         );
     }
 </script>
-
 </body>
 </html>

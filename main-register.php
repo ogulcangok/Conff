@@ -48,7 +48,7 @@ if (isset($_POST['user_register'])) {
         $query = $db->prepare('INSERT INTO member SET member_name = ?, member_surname = ?, member_email = ? , member_title = ?, member_telephone = ?, member_password = ?, member_date_of_birth = ?,member_role_id=?');
 
         $add = $query->execute([
-            $user_name, $user_surname, $user_email, $user_title,$user_telephone, $encyrpted_password,$user_date_of_birth,4
+            $user_name, $user_surname, $user_email, $user_title, $user_telephone, $encyrpted_password, $user_date_of_birth, 4
         ]);
 
         $member_id = $db->lastInsertId();
