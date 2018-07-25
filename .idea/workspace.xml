@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81e20f28-06b0-4d34-a663-96a3fc47c4e6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/jquery-3.0.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sms_verification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Conff.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Conff.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="81e20f28-06b0-4d34-a663-96a3fc47c4e6" name="Default" comment="admin için role ataması yapıldı ve login logout register kısımları database e göre düzenlendi">
+      <change afterPath="$PROJECT_DIR$/img/ogulcan.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event-operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/event-operations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-register.php" beforeDir="false" afterPath="$PROJECT_DIR$/main-register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms_verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/sms_verification.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,15 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main-register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main-register.php">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-              <folding>
-                <element signature="e#2349#3437#0#PHP" />
-                <element signature="e#3439#4883#0#PHP" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="113" column="64" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -36,42 +30,17 @@
       <file leaf-file-name="sms_verification.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sms_verification.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="79" column="9" lean-forward="true" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+            <state relative-caret-position="17">
+              <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
+      <file leaf-file-name="main-register.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main-register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2179">
-              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-              <folding>
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="verify.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/verify.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="69" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#i#0;n#li#2;n#ul#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="13" selection-start-line="3" selection-end-line="3" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -94,9 +63,17 @@
       <find>form</find>
       <find>phot</find>
       <find>print</find>
-      <find>kişise</find>
-      <find>bell</find>
-      <find>header</find>
+      <find>myIn</find>
+      <find>hidde</find>
+      <find>transfer</find>
+      <find>profili</find>
+      <find>üye</find>
+      <find>$success_message</find>
+      <find>lo</find>
+      <find>test</find>
+      <find>user_telephone</find>
+      <find>head</find>
+      <find>üye ol</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,27 +83,24 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/jquery.datepair.js" />
-        <option value="$PROJECT_DIR$/event-operations.php" />
-        <option value="$PROJECT_DIR$/connect.php" />
-        <option value="$PROJECT_DIR$/admin.php" />
-        <option value="$PROJECT_DIR$/EXTERNAL_FRAGMENTreset-password.php" />
-        <option value="$PROJECT_DIR$/mail_configuration.php" />
-        <option value="$PROJECT_DIR$/create-event-day.php" />
-        <option value="$PROJECT_DIR$/create-event.php" />
         <option value="$PROJECT_DIR$/event-detail.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/odeme.php" />
+        <option value="$PROJECT_DIR$/create-event-day.php" />
         <option value="$PROJECT_DIR$/personal-detail.php" />
-        <option value="$PROJECT_DIR$/register.php" />
-        <option value="$PROJECT_DIR$/sms-activation.php" />
-        <option value="$PROJECT_DIR$/mail-configuration.php" />
+        <option value="$PROJECT_DIR$/connect.php" />
+        <option value="$PROJECT_DIR$/event-operations.php" />
+        <option value="$PROJECT_DIR$/create-event.php" />
         <option value="$PROJECT_DIR$/forgot-password.php" />
         <option value="$PROJECT_DIR$/recover-password.php" />
-        <option value="$PROJECT_DIR$/verify.php" />
-        <option value="$PROJECT_DIR$/jquery-3.0.0.min.js" />
-        <option value="$PROJECT_DIR$/sms_verification.php" />
-        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/fb_api_response.php" />
+        <option value="$PROJECT_DIR$/FacebookAccountKitApiResponse.php" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/main-register.php" />
+        <option value="$PROJECT_DIR$/verify.php" />
+        <option value="$PROJECT_DIR$/sms_validation.php" />
+        <option value="$PROJECT_DIR$/jquery-3.0.0.min.js" />
+        <option value="$PROJECT_DIR$/main.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/sms_verification.php" />
       </list>
     </option>
   </component>
@@ -142,10 +116,12 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="MAMP PHP 7.2" />
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP from Xammp" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="240" />
+    <option name="y" value="117" />
+    <option name="width" value="1440" />
+    <option name="height" value="774" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -169,20 +145,126 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img/logo" />
-      <recent name="$PROJECT_DIR$/img" />
+      <recent name="C:\xampp\htdocs\Conff" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/login.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/main-register.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/sms_verification.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -212,12 +294,9 @@
       <workItem from="1531580755259" duration="346000" />
       <workItem from="1531767029245" duration="1178000" />
       <workItem from="1531811202323" duration="20667000" />
-      <workItem from="1531898261771" duration="4832000" />
-      <workItem from="1531997017229" duration="1603000" />
-      <workItem from="1532330159327" duration="854000" />
-      <workItem from="1532347637587" duration="11007000" />
-      <workItem from="1532426892777" duration="10149000" />
-      <workItem from="1532504405329" duration="7576000" />
+      <workItem from="1531898261771" duration="1784000" />
+      <workItem from="1532330050865" duration="6677000" />
+      <workItem from="1532352543466" duration="24550000" />
     </task>
     <task id="LOCAL-00001" summary="event-detail is almost done">
       <created>1531402677557</created>
@@ -261,69 +340,35 @@
       <option name="project" value="LOCAL" />
       <updated>1531829650373</updated>
     </task>
-    <task id="LOCAL-00007" summary="Database yapısı değişti ve değişiklikler diğer sayfalar için düzenlendi">
-      <created>1531903316682</created>
+    <task id="LOCAL-00007" summary="admin için role ataması yapıldı ve login logout register kısımları database e göre düzenlendi">
+      <created>1532347317712</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1531903316682</updated>
+      <updated>1532347317712</updated>
     </task>
-    <task id="LOCAL-00008" summary="User role atamaları yapıldı">
-      <created>1532352863114</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1532352863114</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Şifremi unuttum özelliği eklendi">
-      <created>1532435998653</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1532435998653</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Şifremi unuttum özelliği daha güvenli hale getirildi">
-      <created>1532454178422</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1532454178422</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Conff ico eklendi">
-      <created>1532504458201</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1532504458201</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Şifremi unuttum geliştirildi">
-      <created>1532509065184</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1532509065184</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78583000" />
+    <option name="totallyTimeSpent" value="78181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32923076" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.42735043" />
-      <window_info anchor="right" id="Remote Host" order="3" weight="0.32960597" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15323566" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13557047" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -331,10 +376,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32820514" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32923076" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -372,27 +416,15 @@
     <MESSAGE value="Event Detail Sayfasında hall isimlerinin duplicate olması engellendi" />
     <MESSAGE value="Ufak düzenlemeler yapıldı" />
     <MESSAGE value="Create-event ve Create-event-day sayfalarının bir kısmı oluşturuldu" />
-    <MESSAGE value="Database yapısı değişti ve değişiklikler diğer sayfalar için düzenlendi" />
-    <MESSAGE value="User role atamaları yapıldı" />
-    <MESSAGE value="Şifremi unuttum özelliği eklendi" />
-    <MESSAGE value="Şifremi unuttum özelliği daha güvenli hale getirildi" />
-    <MESSAGE value="Conff ico eklendi" />
-    <MESSAGE value="Şifremi unuttum geliştirildi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Şifremi unuttum geliştirildi" />
+    <MESSAGE value="admin için role ataması yapıldı ve login logout register kısımları database e göre düzenlendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin için role ataması yapıldı ve login logout register kısımları database e göre düzenlendi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main-register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -510,128 +542,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jquery.datepair.js" />
     <entry file="file://$PROJECT_DIR$/datepair.js" />
+    <entry file="file://$PROJECT_DIR$/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-591" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/POP3.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPMailer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mail_configuration.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/logo/conff-color.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/logo/conff.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/errors.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/temp/index.html" />
-    <entry file="file://$PROJECT_DIR$/admin.php" />
-    <entry file="file://$PROJECT_DIR$/PHPMailer.php" />
-    <entry file="file://$PROJECT_DIR$/SMTP.php" />
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="815" column="1" selection-start-line="815" selection-start-column="1" selection-end-line="815" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EXTERNAL_FRAGMENTreset-password.php" />
-    <entry file="file://$PROJECT_DIR$/PHPMailer-master/src/Exception.php" />
-    <entry file="file://$PROJECT_DIR$/class.smtp.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class.phpmailer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mail_configuration.php" />
-    <entry file="file://$PROJECT_DIR$/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" selection-start-line="9" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/event-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/odeme.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personal-detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register.php" />
-    <entry file="file://$PROJECT_DIR$/server.php" />
-    <entry file="file://$PROJECT_DIR$/logout.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/event-operations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create-event-day.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recover-password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="332">
+          <caret line="545" column="49" lean-forward="true" selection-start-line="545" selection-start-column="49" selection-end-line="545" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-event.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="117" column="78" selection-start-line="117" selection-start-column="78" selection-end-line="117" selection-end-column="78" />
+        <state relative-caret-position="2635">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mail-configuration.php">
+    <entry file="file://$PROJECT_DIR$/create-event-day.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1581">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forgot-password.php">
+    <entry file="file://$PROJECT_DIR$/event-detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="37" column="124" selection-start-line="37" selection-start-column="124" selection-end-line="37" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sms-activation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jquery-3.0.0.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="1" column="3501" selection-start-line="1" selection-start-column="3501" selection-end-line="1" selection-end-column="3501" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="17" />
+        <state relative-caret-position="7259">
+          <caret line="427" column="105" selection-start-line="427" selection-start-column="105" selection-end-line="427" selection-end-column="105" />
           <folding>
             <element signature="n#style#0;n#i#0;n#li#2;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
@@ -639,38 +597,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/odeme.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2179">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class.smtp.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forgot-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
           <folding>
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main-register.php">
+    <entry file="file://$PROJECT_DIR$/fb_api_response.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="17">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FacebookAccountKitApiResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_sdk.accountkit.com_en_US_sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="392" selection-start-line="21" selection-start-column="392" selection-end-line="21" selection-end-column="392" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery-3.0.0.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2465">
+          <caret line="160" column="44" lean-forward="true" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
           <folding>
-            <element signature="e#2349#3437#0#PHP" />
-            <element signature="e#3439#4883#0#PHP" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sms_verification.php">
+    <entry file="file://$PROJECT_DIR$/sms_validation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="79" column="9" lean-forward="true" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        <state relative-caret-position="34">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mail-configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#li#2;n#ul#0;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#1;n#ul#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event-operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/verify.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="69" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
+        <state relative-caret-position="643">
+          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recover-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main-register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sms_verification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sms-activation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4896" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="113" column="64" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="64" />
         </state>
       </provider>
     </entry>

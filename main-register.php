@@ -55,7 +55,7 @@ if (isset($_POST['user_register'])) {
 
         print_r($add);
         if ($add) {
-            header('Location:index.php');
+          //  header('Location:index.php');
 
             $logged = true;
             $_SESSION['user_name'] = $user_name;
@@ -93,7 +93,7 @@ if (isset($_REQUEST['login'])) {
 
         $member = $query->fetch(PDO::FETCH_ASSOC);
         if ($member) {
-            header('Location:index.php');
+            //header('Location:index.php');
 
             $logged = true;
             $_SESSION['user_name'] = $member['member_name'];
@@ -133,7 +133,7 @@ if(isset($_REQUEST['company_register'])){
 
         print_r($add);
         if ($add) {
-            header('Location:index.php');
+            //header('Location:index.php');
 
             $logged = true;
             $_SESSION['user_name'] = $firm_user_name;
