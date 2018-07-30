@@ -1,6 +1,6 @@
 <?php
 
-include 'main-register.php';
+require 'session.php';
 require 'connect.php';
 require 'event-operations.php';
 

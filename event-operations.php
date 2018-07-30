@@ -5,11 +5,13 @@
  * Date: 10.07.2018
  * Time: 14:02
  */
+require 'mail-configuration.php';
+require 'connect.php';
 
 
 function countEvents() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME , DB_USERNAME, DB_PASSWORD);
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -24,7 +26,7 @@ function countEvents() {
 
 function readEvent($direction, $firstEventOfPage, $limit, $category) {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;dbname='. DB_NAME, DB_USERNAME, DB_PASSWORD);
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

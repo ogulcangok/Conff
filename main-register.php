@@ -1,6 +1,6 @@
 <?php
 require 'session.php';
-require_once 'connect.php';
+require'connect.php';
 $logged = false;
 
 
@@ -31,9 +31,6 @@ if(isset($_POST['code'])) {
         $user_info = $obj->getAccountKitAccountInfo();
 
         if(isset($user_info->phone)) {
-
-
-
             if ($user_password != $user_re_password) {
                 array_push($registerErrors, 'Passwords are not matching');
             }
@@ -62,13 +59,11 @@ if(isset($_POST['code'])) {
                     $add = $query->execute([
                         $member_id
                     ]);
-
+                    header("Location: index.php");
                 } else {
-                    print_r($query->errorInfo());
+                    header("Location: login.php");
                 }
             }
-
-
             header("Location: index.php");
             exit;
         } else {

@@ -1,5 +1,5 @@
 <?php
-    include 'connect.php';
+    require 'connect.php';
     require 'session.php';
     require 'event-operations.php';
 

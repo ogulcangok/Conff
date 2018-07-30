@@ -2,40 +2,46 @@
 include 'errors.php';
 require 'connect.php';
 require 'session.php';
+require 'mail-configuration.php';
 
 function checkEmail($email) {
     try{
-        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;dbname='. DB_NAME, DB_USERNAME, DB_PASSWORD);
+        $query = $db->prepare('SELECT * FROM member WHERE member_email = ?');
+        $query->execute([
+            $email
+        ]);
+        $members = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($members) {
+            return 0;
+        } else {
+            return 1;
+        }
     } catch (PDOException $e) {
         echo $e->getMessage();
-    }
-    $query = $db->prepare('SELECT * FROM member WHERE member_email = ?');
-    $members = $query->execute([
-            $email
-    ]);
-    if ($members) {
-        return 0;
-    } else {
-        return 1;
     }
 }
 
 function checkPhoneNumber($phone) {
     try{
-        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
+
+        $query = $db->prepare('SELECT * FROM member WHERE member_telephone = ?');
+        $query->execute([
+            $phone
+        ]);
+        $members = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($members) {
+            return 0;
+        } elseif (!$members) {
+            return 1;
+        }
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-    if (empty($phone))
-    $query = $db->prepare('SELECT * FROM member WHERE member_telephone = ?');
-    $members = $query->execute([
-        $phone
-    ]);
-    if ($members) {
-        return 0;
-    } else {
-        return 1;
-    }
+
 }
 
 if (isset($_REQUEST['login'])) {
@@ -57,13 +63,11 @@ if (isset($_REQUEST['login'])) {
 
         $member = $query->fetch(PDO::FETCH_ASSOC);
         if ($member) {
-            //header('Location:index.php');
 
             $logged = true;
             $_SESSION['user_name'] = $member['member_name'];
             $_SESSION['logged'] = $logged;
             $_SESSION['user_role'] = $member['member_role_id'];
-            print_r($member);
             header('Location: index.php');
         } else {
             array_push($loginErrors, 'Wrong username/password combination');
@@ -521,6 +525,9 @@ if (isset($_REQUEST['login'])) {
 
 
     function loginWithSMS(){
+        var countryCode = "+90";
+        var phoneNumber = document.getElementById("user_telephone").value;
+
         var phoneExist = "<?php echo checkPhoneNumber($_GET['user_telephone']) ?>";
         var emailExist = "<?php echo checkEmail($_GET['user_email']) ?>";
         var checkbox = document.getElementById("accept_terms");
@@ -541,7 +548,7 @@ if (isset($_REQUEST['login'])) {
             checkbox_error.innerHTML ="<li> Lütfen kabul ediniz </li>";
         }
         else {
-            AccountKit.login("PHONE",{}, loginCallback);
+            AccountKit.login("PHONE",{countryCode: countryCode, phoneNumber: phoneNumber}, loginCallback);
         }
     }
 </script>
@@ -550,6 +557,6 @@ if (isset($_REQUEST['login'])) {
 </html>
 <?php else: ?>
 
-<?php //header('Location: index .php') ?>
+<?php header('Location: index .php') ?>
 
 <?php endif; ?>

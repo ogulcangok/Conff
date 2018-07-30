@@ -7,7 +7,7 @@
  */
 
 require 'connect.php';
-require 'main-register.php';
+require 'session.php';
 
 $query = $db->prepare('SELECT * FROM event_categories');
 $query->execute();
