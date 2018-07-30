@@ -64,10 +64,8 @@ if(isset($_POST['code'])) {
                     header("Location: login.php");
                 }
             }
-            header("Location: index.php");
-            exit;
         } else {
-
+            header("Location: login.php");
         }
         //print_r($_SESSION);
     } else {

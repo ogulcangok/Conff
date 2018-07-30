@@ -553,6 +553,43 @@ if (isset($_REQUEST['login'])) {
     }
 </script>
 
+
+
+
+<script>
+    $(document).ready(function(){
+
+        $("#user_telephone").keyup(function(){
+            var user_telephone = $("#user_telephone").val().trim();
+            if(user_telephone != ''){
+                $("#user_telephone_error").show();
+                $.ajax({
+                    url: 'user_telephone_checker.php',
+                    type: 'post',
+                    data: {user_telephone: user_telephone},
+                    success: function(response){
+                        if(response > 0){
+                            $("#user_telephone_error").html("<span class='not-exists'>* Username Already in use.</span>");
+                        }else{
+                            $("#user_telephone_error").html("<span class='exists'>Available.</span>");
+                        }
+                    }
+                });
+            }else{
+                $("#user_telephone_error").hide();
+            }
+
+        });
+
+    });
+</script>
+
+
+
+
+
+
+
 </body>
 </html>
 <?php else: ?>
