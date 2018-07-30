@@ -5,7 +5,7 @@
  * Date: 9.07.2018
  * Time: 16:45
  */
-require_once 'main-register.php';
+require 'session.php';
 
 session_destroy();
 $logged = false;

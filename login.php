@@ -1,7 +1,76 @@
 <?php
 include 'errors.php';
-?>
+require 'connect.php';
+require 'session.php';
 
+function checkEmail($email) {
+    try{
+        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $query = $db->prepare('SELECT * FROM member WHERE member_email = ?');
+    $members = $query->execute([
+            $email
+    ]);
+    if ($members) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+function checkPhoneNumber($phone) {
+    try{
+        $db = new PDO('mysql:host=localhost;dbname=conffco1_test', 'root', 'root');
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    if (empty($phone))
+    $query = $db->prepare('SELECT * FROM member WHERE member_telephone = ?');
+    $members = $query->execute([
+        $phone
+    ]);
+    if ($members) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+if (isset($_REQUEST['login'])) {
+    $user_login_email = $_POST['login_username'];
+    $user_login_password = $_POST['login_password'];
+
+    if (empty($user_login_email)) {
+        array_push($loginErrors, 'Email is required');
+    }
+    if (empty($user_login_password)) {
+        array_push($loginErrors, 'Password is required');
+    }
+    if (count($loginErrors) == 0) {
+        $encyrpted_login_password = md5($user_login_password);
+        $query = $db->prepare("SELECT * FROM member WHERE member_email = ? AND member_password = ?");
+        $query->execute([
+            $user_login_email, $encyrpted_login_password
+        ]);
+
+        $member = $query->fetch(PDO::FETCH_ASSOC);
+        if ($member) {
+            //header('Location:index.php');
+
+            $logged = true;
+            $_SESSION['user_name'] = $member['member_name'];
+            $_SESSION['logged'] = $logged;
+            $_SESSION['user_role'] = $member['member_role_id'];
+            print_r($member);
+            header('Location: index.php');
+        } else {
+            array_push($loginErrors, 'Wrong username/password combination');
+        }
+    }
+}
+?>
 <?php if ($_SESSION['logged'] == false): ?>
 <!doctype html>
 <html class="no-js" lang="tr">
@@ -111,7 +180,7 @@ include 'errors.php';
             </div>
             <div class="tab-content" style="padding: 20px;">
                 <div role="tabpanel" class="tab-pane active" id="person">
-                    <form method="post" action="sms_verification.php">
+                    <form method="post" action="main-register.php" id="user_register_form" name="user_register_form">
 
                         <select name="user_title">
                             <option value="title1">Title1</option>
@@ -127,27 +196,32 @@ include 'errors.php';
                         <br>
                         <input type="text" class="tarih"  name="user_date_of_birth" placeholder="Date Of Birth" required>
                         <br><br>
-                        <input type="text" class="form-control" name="user_telephone" placeholder="Telephone" required>
+                        <input type="text" class="form-control" name="user_telephone" id="user_telephone" placeholder="Telephone" required>
+                        <h4 id="user_telephone_error" style="color: #FF4933;"></h4>
                         <br>
-                        <input type="email" class="form-control" name="user_email" placeholder="Email" required>
+                        <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Email" required>
+                        <h4 id="user_email_error" style="color: #FF4933;"></h4>
                         <br>
                         <input type="password" class="form-control" name="user_password" placeholder="Password" required>
                         <br>
-                        <input type="password" class="form-control" name="user_re_password*" placeholder="Re-Enter Password" required>
+                        <input type="password" class="form-control" name="user_re_password" placeholder="Re-Enter Password" required>
                         <br>
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-xs-12" style="display: flex">
                                 <label class="checkbox-container" style="font-size:14px;">TERMS AND CONDITIONAL
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="accept_terms" name="accept_terms">
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </div>
+                                <h4 id="accept_terms_error" style="color: #FF4933;"></h4>
                             <div class="col-md-4 col-sm-4 col-xs-12" style="display: flex">
                                 <input type="hidden" name="user_register" value="1">
-                                <button type="submit" class="continue-button  btn-lg btn-block">Devam Et</button>
+                                <input type="hidden" id="code" name="code">
+                                <input type="hidden" id="csrf_nonce" name="csrf_nonce">
                             </div>
                         </div>
                     </form>
+                    <button onclick="loginWithSMS();" class="continue-button  btn-lg btn-block">Devam Et</button>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="organization">
                     <form method="post">
@@ -410,10 +484,72 @@ include 'errors.php';
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+<!-- Facebook Account Kit
+   ============================================ -->
+
+<script src="jquery-3.0.0.min.js"></script>
+<script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
+
+
+<script>
+    AccountKit_OnInteractive = function(){
+        console.log("{{csrf}}")
+        AccountKit.init({
+            appId: 2103161540006051,
+            state: "{{csrf}}",
+            version: "v1.0"
+        });
+    };
+
+    // login callback
+    function loginCallback(response) {
+        console.log(response);
+        if (response.status === "PARTIALLY_AUTHENTICATED") {
+            document.getElementById("code").value = response.code;
+            document.getElementById("csrf_nonce").value = response.state;
+            document.getElementById("user_register_form").submit();
+        }
+        else if (response.status === "NOT_AUTHENTICATED") {
+            // handle authentication failure
+            console.log("NOT_AUTHENTICATED");
+        }
+        else if (response.status === "BAD_PARAMS") {
+            // handle bad parameters
+            console.log("BAD_PARAMS");
+        }
+    }
+
+
+    function loginWithSMS(){
+        var phoneExist = "<?php echo checkPhoneNumber($_GET['user_telephone']) ?>";
+        var emailExist = "<?php echo checkEmail($_GET['user_email']) ?>";
+        var checkbox = document.getElementById("accept_terms");
+        if (phoneExist == 0) {
+            var telephone_error = document.getElementById("user_telephone_error");
+            telephone_error.innerHTML ="<li> Bu telefon numarası kullanılıyor </li>";
+        }
+        if (phoneExist == 1) {
+            var telephone_error = document.getElementById("user_telephone_error");
+            telephone_error.innerHTML = "";
+        }
+        if (emailExist == 0) {
+            var mail_error = document.getElementById("user_email_error");
+            mail_error.innerHTML ="<li> Bu mail adresi kullanılıyor </li>";
+        }
+        if (checkbox.checked == false) {
+            var checkbox_error = document.getElementById("accept_terms_error");
+            checkbox_error.innerHTML ="<li> Lütfen kabul ediniz </li>";
+        }
+        else {
+            AccountKit.login("PHONE",{}, loginCallback);
+        }
+    }
+</script>
+
 </body>
 </html>
 <?php else: ?>
 
-<?php //header('Location: index.php') ?>
+<?php //header('Location: index .php') ?>
 
 <?php endif; ?>

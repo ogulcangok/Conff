@@ -1,5 +1,6 @@
 <?php
-    include 'main-register.php';
+    include 'connect.php';
+    require 'session.php';
     require 'event-operations.php';
 
     $limit = 10;
