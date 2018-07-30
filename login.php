@@ -200,11 +200,9 @@ if (isset($_REQUEST['login'])) {
                         <br>
                         <input type="text" class="tarih"  name="user_date_of_birth" placeholder="Date Of Birth" required>
                         <br><br>
-                        <input type="text" class="form-control" name="user_telephone" id="user_telephone" placeholder="Telephone" required>
-                        <h4 id="user_telephone_error" style="color: #FF4933;"></h4>
+                        <input type="text" class="form-control" name="user_telephone" id="user_telephone" placeholder="Telephone" required><h4 id="user_telephone_error" style="color: #FF4933;"></h4>
                         <br>
-                        <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Email" required>
-                        <h4 id="user_email_error" style="color: #FF4933;"></h4>
+                        <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Email" required><h4 id="user_email_error" style="color: #FF4933;"></h4>
                         <br>
                         <input type="password" class="form-control" name="user_password" placeholder="Password" required>
                         <br>
@@ -553,12 +551,8 @@ if (isset($_REQUEST['login'])) {
     }
 </script>
 
-
-
-
 <script>
     $(document).ready(function(){
-
         $("#user_telephone").keyup(function(){
             var user_telephone = $("#user_telephone").val().trim();
             if(user_telephone != ''){
@@ -569,7 +563,7 @@ if (isset($_REQUEST['login'])) {
                     data: {user_telephone: user_telephone},
                     success: function(response){
                         if(response > 0){
-                            $("#user_telephone_error").html("<span class='not-exists'>* Username Already in use.</span>");
+                            $("#user_telephone_error").html("<span class='not-exists'>* Telephone Number Already in use.</span>");
                         }else{
                             $("#user_telephone_error").html("<span class='exists'>Available.</span>");
                         }
@@ -578,9 +572,32 @@ if (isset($_REQUEST['login'])) {
             }else{
                 $("#user_telephone_error").hide();
             }
-
         });
+    });
+</script>
 
+<script>
+    $(document).ready(function(){
+        $("#user_email").keyup(function(){
+            var user_email = $("#user_email").val().trim();
+            if(user_email != ''){
+                $("#user_email_error").show();
+                $.ajax({
+                    url: 'user_telephone_checker.php',
+                    type: 'post',
+                    data: {user_email: user_email},
+                    success: function(response){
+                        if(response > 0){
+                            $("#user_email_error").html("<span class='not-exists'>* Email Already in use.</span>");
+                        }else{
+                            $("#user_email_error").html("<span class='exists'>Available.</span>");
+                        }
+                    }
+                });
+            }else{
+                $("#user_email_error").hide();
+            }
+        });
     });
 </script>
 
