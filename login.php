@@ -4,45 +4,6 @@ require 'connect.php';
 require 'session.php';
 require 'mail-configuration.php';
 
-function checkEmail($email) {
-    try{
-        $db = new PDO('mysql:host=localhost;dbname='. DB_NAME, DB_USERNAME, DB_PASSWORD);
-        $query = $db->prepare('SELECT * FROM member WHERE member_email = ?');
-        $query->execute([
-            $email
-        ]);
-        $members = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        if ($members) {
-            return 0;
-        } else {
-            return 1;
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-}
-
-function checkPhoneNumber($phone) {
-    try{
-        $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
-
-        $query = $db->prepare('SELECT * FROM member WHERE member_telephone = ?');
-        $query->execute([
-            $phone
-        ]);
-        $members = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        if ($members) {
-            return 0;
-        } elseif (!$members) {
-            return 1;
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-
-}
 
 if (isset($_REQUEST['login'])) {
     $user_login_email = $_POST['login_username'];
@@ -526,28 +487,8 @@ if (isset($_REQUEST['login'])) {
         var countryCode = "+90";
         var phoneNumber = document.getElementById("user_telephone").value;
 
-        var phoneExist = "<?php echo checkPhoneNumber($_GET['user_telephone']) ?>";
-        var emailExist = "<?php echo checkEmail($_GET['user_email']) ?>";
-        var checkbox = document.getElementById("accept_terms");
-        if (phoneExist == 0) {
-            var telephone_error = document.getElementById("user_telephone_error");
-            telephone_error.innerHTML ="<li> Bu telefon numarası kullanılıyor </li>";
-        }
-        if (phoneExist == 1) {
-            var telephone_error = document.getElementById("user_telephone_error");
-            telephone_error.innerHTML = "";
-        }
-        if (emailExist == 0) {
-            var mail_error = document.getElementById("user_email_error");
-            mail_error.innerHTML ="<li> Bu mail adresi kullanılıyor </li>";
-        }
-        if (checkbox.checked == false) {
-            var checkbox_error = document.getElementById("accept_terms_error");
-            checkbox_error.innerHTML ="<li> Lütfen kabul ediniz </li>";
-        }
-        else {
-            AccountKit.login("PHONE",{countryCode: countryCode, phoneNumber: phoneNumber}, loginCallback);
-        }
+        AccountKit.login("PHONE",{countryCode: countryCode, phoneNumber: phoneNumber}, loginCallback);
+
     }
 </script>
 
@@ -600,13 +541,6 @@ if (isset($_REQUEST['login'])) {
         });
     });
 </script>
-
-
-
-
-
-
-
 </body>
 </html>
 <?php else: ?>
