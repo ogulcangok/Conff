@@ -100,10 +100,9 @@
 			';
 			$result.=$this->http_meta();
             $result.= '
-                <link rel="shortcut icon" type="image/x-icon" href="'.HTTP_SERVER.'img/logo/conff.ico" />
+                <link rel="shortcut icon" type="image/x-icon" href="'.HTTP_SERVER.HTTP_LIB.'img/logo/conff.ico" />
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
                 <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet" type="text/css">
-				<link href="'.HTTP_SERVER.'com/com.css" rel="stylesheet" type="text/css" />
 			';
 			$result.=$this->header_css;
 			$result.=$this->header_js;

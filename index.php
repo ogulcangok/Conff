@@ -38,17 +38,17 @@
 	$core->db_connect();
 	$core->http_get_default=array("");
 
-	$core->http_header_add_css(HTTP_SERVER.'css/bootstrap.min.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/font-awesome.min.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/owl.carousel.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/jquery-ui.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/meanmenu.min.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/animate.css');
-	$core->http_header_add_css(HTTP_SERVER.'lib/nivo-slider/css/nivo-slider.css');
-	$core->http_header_add_css(HTTP_SERVER.'lib/nivo-slider/css/preview.css');
-	$core->http_header_add_css(HTTP_SERVER.'style.css');
-	$core->http_header_add_css(HTTP_SERVER.'css/responsive.css');
-    $core->http_header_add_js(HTTP_SERVER.'js/vendor/modernizr-2.8.3.min.js');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/bootstrap.min.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/font-awesome.min.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/owl.carousel.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/jquery-ui.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/meanmenu.min.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/animate.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'nivo-slider/css/nivo-slider.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'nivo-slider/css/preview.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/style.css');
+	$core->http_header_add_css(HTTP_SERVER.HTTP_LIB.'css/responsive.css');
+    $core->http_header_add_js(HTTP_SERVER.HTTP_LIB.'js/vendor/modernizr-2.8.3.min.js');
     
     echo $core->http_header();
     
