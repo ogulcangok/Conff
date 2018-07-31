@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery.timepicker" level="application" />
     <orderEntry type="library" name="sdk" level="application" />
+    <orderEntry type="library" name="ei" level="application" />
   </component>
 </module>

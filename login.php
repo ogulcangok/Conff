@@ -611,6 +611,6 @@ if (isset($_REQUEST['login'])) {
 </html>
 <?php else: ?>
 
-<?php header('Location: index .php') ?>
+<?php header('Location: index.php') ?>
 
 <?php endif; ?>
