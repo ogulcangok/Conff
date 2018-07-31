@@ -1,5 +1,7 @@
 <?php
 
+require 'session.php';
+require 'connect.php';
 require 'event-operations.php';
 
 
